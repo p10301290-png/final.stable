@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#05060a"><meta name="description" content="XAUUSD trade journal"><meta name="author" content="Santosh"><meta name="robots" content="noindex,nofollow"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="XAU Journal"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" href="icon.png"><link rel="apple-touch-icon" href="icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><title>XAUUSD Journal</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"><meta name="theme-color" content="#05060a"><meta name="description" content="XAUUSD trade journal"><meta name="author" content="Santosh"><meta name="robots" content="noindex,nofollow"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="XAU Journal"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" href="icon.png"><link rel="apple-touch-icon" href="icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><title>XAUUSD Journal</title>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Doto:ROND,wght@0..100,100..900&family=DotGothic16&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Doto:ROND,wght@0..100,100..900&family=DotGothic16&display=swap"></noscript>
 <style>
@@ -79,7 +79,7 @@ path[stroke-width="2.2"]{filter:drop-shadow(0 4px 8px color-mix(in srgb,var(--ac
 html{overscroll-behavior-y:none}
 body{background:var(--bg)}
 body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(640px 360px at 92% -120px,var(--gl),transparent),radial-gradient(540px 440px at -25% 40%,var(--glow2),transparent)}
-button,summary,.cd,select,input{touch-action:manipulation}
+button,summary,.cd,select,input{touch-action:pan-x pan-y}
 .card,.chips button,.chips select,.chips input,.sm,.seg button,.pill,.cd,.ib,.mn>button,nav button,.pri,.fab,.chip,label input,label select,label textarea{transition:background-color .3s,color .3s,border-color .3s,box-shadow .3s,transform .25s cubic-bezier(.2,.7,.2,1),opacity .3s}
 summary:active{transform:scale(.992)}.cd:active{transform:scale(.93)}.pri:active,.fab:active{transform:scale(.96)}
 details[open] .det{animation:up .4s cubic-bezier(.2,.7,.2,1)}
@@ -168,7 +168,7 @@ html,body{overflow-x:hidden;max-width:100%}
 .stl .t{font-size:9px;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 summary>b{white-space:nowrap}
 /* ===== zoom / overflow fixes ===== */
-html{touch-action:manipulation;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{touch-action:pan-x pan-y}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 main{width:100%;min-width:0}
 input,select,textarea{font-size:16px!important;max-width:100%}
 .det{grid-template-columns:repeat(2,minmax(0,1fr))}.det>*{min-width:0;overflow-wrap:anywhere}
@@ -568,6 +568,7 @@ main[data-tab=cal] .mt span{letter-spacing:.1em;font-weight:600}
 .cvt{display:flex;gap:2px;min-height:4px}.cvt i{width:4px;height:4px;border-radius:50%}
 .cvd.now .cvn{background:var(--ac);color:var(--on);border-radius:7px;padding:3px 5px;margin:-3px 0 0 -3px}
 .cvd.now{overflow:visible}
+.cvd.w{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--g) 30%,transparent),0 0 12px -1px color-mix(in srgb,var(--g) var(--k,14%),transparent)}
 .cvd.now:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;border:2px solid var(--ac);box-shadow:0 0 6px var(--ac),0 0 16px color-mix(in srgb,var(--ac) 65%,transparent),inset 0 0 10px color-mix(in srgb,var(--ac) 40%,transparent);animation:nowGlow 2.2s ease-in-out infinite}
 @keyframes nowGlow{0%,100%{opacity:.75;box-shadow:0 0 4px var(--ac),0 0 10px color-mix(in srgb,var(--ac) 50%,transparent),inset 0 0 6px color-mix(in srgb,var(--ac) 30%,transparent)}50%{opacity:1;box-shadow:0 0 9px var(--ac),0 0 24px color-mix(in srgb,var(--ac) 80%,transparent),inset 0 0 14px color-mix(in srgb,var(--ac) 50%,transparent)}}
 @media (prefers-reduced-motion:reduce){.cvd.now:after{animation:none}}
@@ -601,8 +602,6 @@ html:root:not([data-ui="nothing"]) .card:not(.hero){border-radius:26px;border:1p
 html:root:not([data-ui="nothing"]) .hero{border-radius:30px;box-shadow:inset 0 1px 0 var(--hl),0 34px 64px -34px color-mix(in srgb,var(--ac) 60%,transparent),var(--sh)}
 html:root:not([data-ui="nothing"]) h2:after{background:linear-gradient(90deg,color-mix(in srgb,var(--mu) 40%,transparent),transparent)}
 html:root:not([data-ui="nothing"]) header{margin:12px 2px 26px}
-html:root:not([data-ui="nothing"]) nav{border-radius:32px;background:color-mix(in srgb,var(--card) 66%,transparent);-webkit-backdrop-filter:blur(24px) saturate(1.6);backdrop-filter:blur(24px) saturate(1.6);border:1px solid color-mix(in srgb,var(--tx) 10%,transparent);box-shadow:inset 0 1px 0 var(--hl),0 24px 48px -20px rgba(0,0,0,.6)}
-html:root:not([data-ui="nothing"]) nav .ind{border-radius:26px}
 html:root:not([data-ui="nothing"]) .fab{border-radius:28px;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 18px 34px -10px color-mix(in srgb,var(--ac) 75%,transparent)}
 html:root:not([data-ui="nothing"]) .pri{border-radius:20px}
 html:root:not([data-ui="nothing"]) .chips button,html:root:not([data-ui="nothing"]) .chips select,html:root:not([data-ui="nothing"]) .chips input{border-radius:999px;background:color-mix(in srgb,var(--card) 80%,transparent);border-color:color-mix(in srgb,var(--tx) 9%,transparent)}
@@ -614,9 +613,197 @@ html:root:not([data-ui="nothing"]) .sm{border-radius:14px}
 html:root:not([data-ui="nothing"]) input:focus,html:root:not([data-ui="nothing"]) select:focus,html:root:not([data-ui="nothing"]) textarea:focus{box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 22%,transparent)}
 ::selection{background:color-mix(in srgb,var(--ac) 35%,transparent)}
 html{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--mu) 40%,transparent) transparent}
+.accp{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 11px;margin:4px 2px 0;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--tx,inherit);font-size:12px;font-weight:600}.accp i{width:8px;height:8px;border-radius:50%}.accp span{opacity:.6;font-size:11px}
+.accr{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;margin-top:8px;border-radius:14px;border:1px solid var(--bd);background:var(--c2);color:var(--tx);font-size:14px;font-weight:600;text-align:left}.accr i{width:9px;height:9px;border-radius:50%;flex:none}.accr span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.accr em{font-style:normal;font-size:11px;color:var(--mu)}.accr.on{border-color:var(--ac)}
+.pk-c.act{border-radius:14px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ac) 50%,transparent)}.pk-o.kb{background:color-mix(in srgb,var(--ac) 16%,transparent)}.pk-mg .kb{box-shadow:0 0 0 2px var(--ac)}.pk-kh{display:none;margin-top:10px;text-align:center;font-size:11px;color:var(--mu)}@media (hover:hover) and (pointer:fine){.pk-kh{display:block}}
+#acc_n{text-transform:none;letter-spacing:normal;font-weight:600}
+.dlg-b,.pk-b{touch-action:none}.dlg-c,.pk-s{overscroll-behavior:contain}
+.ai{flex:0 0 auto;width:38px;height:38px;border-radius:13px;display:grid;place-items:center;color:var(--ac);background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 26%,var(--c2)),color-mix(in srgb,var(--ac) 7%,var(--c2)));border:1px solid color-mix(in srgb,var(--ac) 34%,transparent);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 8px 18px -10px var(--ac)}
+.ai .i{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.aih{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+/* AMOLED layer: true black, hairline glass, accent glow. Active only in dark mode (data-amo is set from JS, see applyAm) */
+@property --amo-a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes amoSpin{to{--amo-a:360deg}}
+@keyframes amoGlow{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 1px rgba(0,0,0,.6),0 10px 34px -8px color-mix(in srgb,var(--ac) 60%,transparent)}50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 1px rgba(0,0,0,.6),0 12px 46px -6px color-mix(in srgb,var(--ac) 90%,transparent)}}
+html:root[data-amo]:not(#_){--bg:#000;--card:color-mix(in srgb,var(--ac) 3.5%,#000);--c1:color-mix(in srgb,var(--ac) 5.5%,#000);--c2:color-mix(in srgb,var(--ac) 8.5%,#000);--bd:rgba(255,255,255,.075);--hl:rgba(255,255,255,.11);--glow2:transparent;--sh:0 0 0 1px rgba(0,0,0,.9),0 22px 44px -26px #000;color-scheme:dark}
+html:root[data-amo]:not(#_) body{background:#000}
+html:root[data-amo]:not(#_) body:before{display:none!important}
+html:root[data-amo]:not(#_) body:after{background:radial-gradient(520px 320px at 100% -90px,color-mix(in srgb,var(--ac2) 18%,transparent),transparent 70%),radial-gradient(440px 400px at -30% 108%,color-mix(in srgb,var(--ac) 10%,transparent),transparent 70%)}
+html:root[data-amo]:not(#_) .card:not(.hero){background:linear-gradient(180deg,color-mix(in srgb,var(--ac2) 5.5%,#000),var(--card) 58%);border:1px solid var(--bd);box-shadow:inset 0 1px 0 var(--hl),0 0 0 1px rgba(0,0,0,.7),0 20px 44px -28px color-mix(in srgb,var(--ac) 38%,transparent)}
+html:root[data-amo]:not(#_) .hero{border:1px solid transparent;background:radial-gradient(380px 230px at 100% 0,color-mix(in srgb,var(--ac2) 21%,transparent),transparent 70%) padding-box,linear-gradient(160deg,color-mix(in srgb,var(--ac) 9%,#000),#000 72%) padding-box,conic-gradient(from var(--amo-a),color-mix(in srgb,var(--ac2) 12%,transparent) 0 52%,var(--ac2) 78%,color-mix(in srgb,var(--ac2) 12%,transparent) 94%) border-box;box-shadow:inset 0 1px 0 var(--hl),0 0 48px -20px color-mix(in srgb,var(--ac) 65%,transparent);animation:amoSpin 10s linear infinite}
+html:root[data-amo]:not(#_) nav{background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(20px) saturate(1.8);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 0 1px rgba(0,0,0,.85),0 22px 54px -14px #000,0 0 38px -18px color-mix(in srgb,var(--ac2) 65%,transparent)}
+html:root[data-amo]:not(#_) nav .ind{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--ac2) 55%,transparent),inset 0 0 0 1px color-mix(in srgb,var(--ac2) 30%,transparent),0 0 28px -4px var(--ac2)}
+html:root[data-amo]:not(#_) #tb{background:rgba(0,0,0,.72);border-bottom:1px solid rgba(255,255,255,.07)}
+html:root[data-amo]:not(#_) #tb.on{-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
+html:root[data-amo]:not(#_) .pk-b,html:root[data-amo]:not(#_) .dlg-b{background:rgba(0,0,0,.8)}
+html:root[data-amo]:not(#_) .dlg-c,html:root[data-amo]:not(#_) .pk-s{background:linear-gradient(180deg,color-mix(in srgb,var(--ac) 7%,#000),#000 72%);border:1px solid rgba(255,255,255,.09);box-shadow:0 -18px 60px -22px color-mix(in srgb,var(--ac) 32%,transparent),0 30px 80px -20px #000}
+html:root[data-amo]:not(#_) input:focus,html:root[data-amo]:not(#_) select:focus,html:root[data-amo]:not(#_) textarea:focus{border-color:color-mix(in srgb,var(--ac2) 65%,transparent);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 18%,transparent),0 0 26px -6px var(--ac)}
+html:root[data-amo]:not(#_) .pri{box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 10px 30px -8px color-mix(in srgb,var(--ac) 70%,transparent)}
+html:root[data-amo]:not(#_) .fab{animation:amoGlow 3.6s ease-in-out infinite}
+html:root[data-amo]:not(#_) .big,html:root[data-amo]:not(#_) .big2,html:root[data-amo]:not(#_) .mt b,html:root[data-amo]:not(#_) .hero b{text-shadow:0 0 22px color-mix(in srgb,currentColor 36%,transparent)}
+html:root[data-amo]:not(#_) svg path[stroke-width="2.2"]{filter:drop-shadow(0 0 5px color-mix(in srgb,var(--ac2) 70%,transparent))}
+html:root[data-amo]:not(#_) .bar i{box-shadow:0 0 12px -3px var(--ac2)}
+html:root[data-amo]:not(#_) .swt.on{box-shadow:0 0 18px -4px var(--ac)}
+@media (prefers-reduced-motion:reduce){html:root[data-amo]:not(#_) .hero,html:root[data-amo]:not(#_) .fab{animation:none}}
+
+/* ===== perf v2: AMOLED scroll-lag fix =====
+   Cause: infinite animations that repaint every frame (rotating conic border, box-shadow pulses),
+   full-width backdrop blur on fixed bars, SVG drop-shadow filters and huge blurred card shadows. */
+@keyframes nowPulse{0%,100%{opacity:.7}50%{opacity:1}}
+.cvd.now:after{animation:nowPulse 2.2s ease-in-out infinite;will-change:opacity;box-shadow:0 0 6px var(--ac),0 0 18px color-mix(in srgb,var(--ac) 65%,transparent),inset 0 0 12px color-mix(in srgb,var(--ac) 40%,transparent)}
+@media (prefers-reduced-motion:reduce){.cvd.now:after{animation:none}}
+html:root:not(#_) path[stroke-width="2.2"]{filter:none}
+.hero:after{will-change:transform}
+html:root[data-amo]:not(#_) .hero{animation:none;--amo-a:205deg;box-shadow:inset 0 1px 0 var(--hl),0 0 30px -16px color-mix(in srgb,var(--ac) 65%,transparent)}
+html:root[data-amo]:not(#_) .fab{animation:none;will-change:transform;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 1px rgba(0,0,0,.6),0 8px 24px -8px color-mix(in srgb,var(--ac) 75%,transparent)}
+html:root[data-amo]:not(#_) .card:not(.hero){box-shadow:inset 0 1px 0 var(--hl),0 0 0 1px rgba(0,0,0,.7),0 8px 22px -16px color-mix(in srgb,var(--ac) 38%,transparent)}
+html:root[data-amo]:not(#_) nav{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(0,0,0,.94);will-change:transform;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 0 1px rgba(0,0,0,.85),0 10px 28px -10px #000,0 0 24px -14px color-mix(in srgb,var(--ac2) 65%,transparent)}
+html:root[data-amo]:not(#_) #tb,html:root[data-amo]:not(#_) #tb.on{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(0,0,0,.94)}
+html:root[data-amo]:not(#_) .pk-b,html:root[data-amo]:not(#_) .dlg-b{-webkit-backdrop-filter:none;backdrop-filter:none}
+html:root[data-amo]:not(#_) svg path[stroke-width="2.2"]{filter:none}
+html:root[data-amo]:not(#_) body:after,body:after{will-change:transform;transform:translateZ(0)}
+
+/* ===== Calendar redesign + fixes ===== */
+#dp{scroll-margin-top:64px}
+main[data-tab=cal] .mn{padding:6px;border-radius:26px;background:var(--card);border:1px solid var(--bd)}
+main[data-tab=cal] .mn>button{width:44px;height:44px;border-radius:19px;background:color-mix(in srgb,var(--tx) 6%,transparent);border:0;font-size:22px;line-height:1;color:var(--tx);display:grid;place-items:center;padding:0 0 2px}
+main[data-tab=cal] .mn>button:active{transform:scale(.9)}
+main[data-tab=cal] .mt b{font:800 20px/1.1 var(--fs);letter-spacing:-.02em}
+main[data-tab=cal] .mt span{font-size:10.5px;letter-spacing:.3em;margin-top:3px;display:block}
+main[data-tab=cal] .hero .stl{gap:8px;margin-top:18px;padding-top:0;border-top:0}
+main[data-tab=cal] .hero .stl>div{background:color-mix(in srgb,var(--tx) 4.5%,transparent);border:1px solid color-mix(in srgb,var(--tx) 6%,transparent);border-radius:15px;padding:10px 12px;min-width:0}
+main[data-tab=cal] .hero .stl .t{font-size:9.5px;margin-bottom:4px}
+main[data-tab=cal] .hero .stl b{font-size:16px;letter-spacing:-.02em;white-space:nowrap}
+main[data-tab=cal] .hero .stl .sub{font-size:10.5px;margin-top:2px}
+.cvc{padding:16px 12px 16px}
+.cvg>i{font:700 10px var(--fs);letter-spacing:.1em;text-transform:uppercase;padding:0 0 8px}
+.cvl i{height:8px;border-radius:5px}
+html:root:not([data-ui="nothing"]) .cvg{gap:7px}
+html:root:not([data-ui="nothing"]) .cvd{border-radius:16px;padding:8px 8px 7px;aspect-ratio:1/1.16;background:color-mix(in srgb,var(--tx) 3.5%,var(--card));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--tx) 6%,transparent);transition:transform .18s,box-shadow .2s}
+html:root:not([data-ui="nothing"]) .cvd .cvn{font:600 11.5px/1 var(--fs);color:var(--mu)}
+html:root:not([data-ui="nothing"]) .cvd.w{background:linear-gradient(155deg,color-mix(in srgb,var(--g) var(--k,14%),var(--card)),color-mix(in srgb,var(--g) var(--k2,6%),var(--card)));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--g) 34%,transparent)}
+html:root:not([data-ui="nothing"]) .cvd.l{background:linear-gradient(155deg,color-mix(in srgb,var(--r) var(--k,14%),var(--card)),color-mix(in srgb,var(--r) var(--k2,6%),var(--card)));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--r) 34%,transparent)}
+html:root:not([data-ui="nothing"]) .cvd.f{background:color-mix(in srgb,var(--tx) 8%,var(--card))}
+html:root:not([data-ui="nothing"]) .cvd.w .cvn,html:root:not([data-ui="nothing"]) .cvd.l .cvn,html:root:not([data-ui="nothing"]) .cvd.f .cvn{color:var(--tx);opacity:.75}
+html:root:not([data-ui="nothing"]) .cvv{font:800 12px/1 var(--fs);letter-spacing:-.02em}
+html:root:not([data-ui="nothing"]) .cvd.w .cvv{color:color-mix(in srgb,var(--g) 62%,var(--tx))}
+html:root:not([data-ui="nothing"]) .cvd.l .cvv{color:color-mix(in srgb,var(--r) 62%,var(--tx))}
+html:root:not([data-ui="nothing"]) .cvt i{width:4px;height:4px;box-shadow:0 0 0 1px color-mix(in srgb,var(--card) 65%,transparent)}
+html:root:not([data-ui="nothing"]) .cvd.now .cvn{background:var(--ac);color:var(--on);opacity:1;border-radius:8px;padding:3px 6px;margin:-3px 0 0 -3px}
+html:root:not([data-ui="nothing"]) .cvd.now:after{animation:none;opacity:1;will-change:auto;border:1.5px solid var(--ac);box-shadow:none}
+html:root:not([data-ui="nothing"]) .cvd.sel{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--tx);z-index:2}
+/* weekly summary */
+.cvk{padding:4px 16px 6px}
+.cvkh{display:flex;justify-content:space-between;align-items:center;padding:12px 0 12px;font-size:12px;font-weight:600;color:var(--mu)}
+.cvkh b{font-weight:800}.cvkh>span:last-child{font-size:14px;font-weight:800;letter-spacing:-.02em}
+.cvw{grid-template-columns:minmax(76px,.85fr) 1.4fr minmax(90px,.95fr);gap:14px;padding:14px 0;border-top:1px solid var(--bd)}
+.cvw.z{opacity:.5}
+.cvw .wl b{display:flex;align-items:center;flex-wrap:wrap;gap:5px;font-size:14px}
+.cvw .wb{height:10px;border-radius:6px;background:color-mix(in srgb,var(--tx) 6%,transparent)}
+.cvw .wb:before{top:-4px;bottom:-4px}
+.cvw .wp{background:linear-gradient(90deg,color-mix(in srgb,var(--g) 40%,transparent),var(--g));border-radius:0 6px 6px 0}
+.cvw .wn{background:linear-gradient(270deg,color-mix(in srgb,var(--r) 40%,transparent),var(--r));border-radius:6px 0 0 6px}
+.wtag{font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:999px}
+.wtag.g{background:color-mix(in srgb,var(--g) 16%,transparent);color:var(--g)}.wtag.r{background:color-mix(in srgb,var(--r) 16%,transparent);color:var(--r)}
+@media (max-width:380px){.cvw{grid-template-columns:68px 1fr 80px;gap:10px}html:root:not([data-ui="nothing"]) .cvg{gap:4px}html:root:not([data-ui="nothing"]) .cvd{padding:6px 5px;border-radius:12px}html:root:not([data-ui="nothing"]) .cvv{font-size:10.5px}}
+@media (min-width:900px){html:root:not([data-ui="nothing"]) main[data-tab=cal] .cvd{border-radius:18px}html:root:not([data-ui="nothing"]) main[data-tab=cal] .cvv{font-size:15px}}
+
+/* ===== AMOLED glow v3: premium glow, compositor-only motion =====
+   Rule: nothing that animates may repaint. Motion = opacity/transform on small pre-rasterised layers;
+   glows themselves are static gradients/shadows (painted once, then cached by the GPU). */
+@keyframes amoBreath{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes amoDrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-70px,90px,0)}}
+@keyframes amoPulse{0%,100%{opacity:.45}50%{opacity:1}}
+html:root[data-amo]:not(#_) body:before{display:block!important;content:"";position:fixed;z-index:-1;top:-170px;right:-150px;width:470px;height:470px;border-radius:50%;pointer-events:none;opacity:1;background:radial-gradient(closest-side,color-mix(in srgb,var(--ac2) 20%,transparent),transparent);animation:amoDrift 18s ease-in-out infinite;will-change:transform}
+html:root[data-amo]:not(#_) .hero{isolation:isolate;box-shadow:inset 0 1px 0 var(--hl),0 0 42px -14px color-mix(in srgb,var(--ac) 72%,transparent)}
+html:root[data-amo]:not(#_) .hero:before{display:block;z-index:-1;right:-70px;top:-90px;width:260px;height:260px;background:radial-gradient(closest-side,color-mix(in srgb,var(--ac2) 34%,transparent),transparent);animation:amoBreath 5.5s ease-in-out infinite;will-change:transform,opacity;pointer-events:none}
+html:root[data-amo]:not(#_) .card:not(.hero){background:radial-gradient(240px 110px at 14% 0,color-mix(in srgb,var(--ac2) 9%,transparent),transparent 78%),linear-gradient(180deg,color-mix(in srgb,var(--ac2) 5.5%,#000),var(--card) 58%);border:1px solid color-mix(in srgb,var(--ac2) 15%,rgba(255,255,255,.05));box-shadow:inset 0 1px 0 var(--hl),0 0 0 1px rgba(0,0,0,.7),0 0 18px -10px color-mix(in srgb,var(--ac) 50%,transparent)}
+html:root[data-amo]:not(#_) .fab:before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;box-shadow:0 0 26px 4px color-mix(in srgb,var(--ac) 80%,transparent),0 0 60px 10px color-mix(in srgb,var(--ac) 38%,transparent);animation:amoPulse 3.2s ease-in-out infinite;will-change:opacity}
+html:root[data-amo]:not(#_) nav{box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 0 0 1px rgba(0,0,0,.85),0 10px 28px -10px #000,0 0 30px -14px color-mix(in srgb,var(--ac2) 60%,transparent)}
+html:root[data-amo]:not(#_) .pri{box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 0 0 1px color-mix(in srgb,var(--ac2) 40%,transparent),0 10px 32px -8px color-mix(in srgb,var(--ac) 75%,transparent)}
+html:root[data-amo]:not(#_) .chips .on,html:root[data-amo]:not(#_) .seg .on{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 18px -4px color-mix(in srgb,var(--ac) 75%,transparent)}
+html:root[data-amo]:not(#_) .big.g,html:root[data-amo]:not(#_) .big2.g,html:root[data-amo]:not(#_) .hero b.g,html:root[data-amo]:not(#_) .wv b.g,html:root[data-amo]:not(#_) .stl b.g,html:root[data-amo]:not(#_) .cvkh .g{text-shadow:0 0 16px color-mix(in srgb,var(--g) 45%,transparent)}
+html:root[data-amo]:not(#_) .big.r,html:root[data-amo]:not(#_) .big2.r,html:root[data-amo]:not(#_) .hero b.r,html:root[data-amo]:not(#_) .wv b.r,html:root[data-amo]:not(#_) .stl b.r,html:root[data-amo]:not(#_) .cvkh .r{text-shadow:0 0 16px color-mix(in srgb,var(--r) 45%,transparent)}
+html:root[data-amo]:not(#_) .cvd.w{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--g) 40%,transparent),inset 0 0 16px -6px color-mix(in srgb,var(--g) 55%,transparent)}
+html:root[data-amo]:not(#_) .cvd.l{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--r) 40%,transparent),inset 0 0 16px -6px color-mix(in srgb,var(--r) 55%,transparent)}
+html:root[data-amo]:not(#_) .cvd.sel{box-shadow:0 0 0 2px #000,0 0 0 4px var(--tx),0 0 18px 2px color-mix(in srgb,var(--tx) 30%,transparent)}
+html:root[data-amo]:not(#_) .cvd.now:after{animation:amoPulse 2.4s ease-in-out infinite;will-change:opacity;border:1.5px solid var(--ac2);box-shadow:0 0 8px var(--ac),0 0 20px color-mix(in srgb,var(--ac) 60%,transparent),inset 0 0 10px color-mix(in srgb,var(--ac) 35%,transparent)}
+html:root[data-amo]:not(#_) .cvw .wp{box-shadow:0 0 12px -2px color-mix(in srgb,var(--g) 70%,transparent)}
+html:root[data-amo]:not(#_) .cvw .wn{box-shadow:0 0 12px -2px color-mix(in srgb,var(--r) 70%,transparent)}
+.amog{display:none;pointer-events:none}html:root[data-amo]:not(#_) .amog{display:inline}
+@media (prefers-reduced-motion:reduce){html:root[data-amo]:not(#_) body:before,html:root[data-amo]:not(#_) .hero:before,html:root[data-amo]:not(#_) .fab:before,html:root[data-amo]:not(#_) .cvd.now:after{animation:none}}
+
+/* ===== AMOLED premium pack: P/L-tinted hero, metallic numbers, fading hairlines, press feel, chart glow, win sweep ===== */
+@keyframes eqPulse{0%{transform:scale(.5);opacity:.9}100%{transform:scale(2.3);opacity:0}}
+@keyframes wgo{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+.eqw{position:relative;margin-top:8px}
+.eqd,#eqh{display:none}
+.eqd{position:absolute;width:0;height:0;pointer-events:none}
+.eqd:before{content:"";position:absolute;left:-10px;top:-10px;width:20px;height:20px;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--ac2) 75%,transparent),transparent);animation:eqPulse 2.2s ease-out infinite;will-change:transform,opacity}
+html:root[data-amo]:not(#_) .eqd{display:block}html:root[data-amo]:not(#_) #eqh{display:inline}
+html:root[data-amo]:not(#_) #eqx{stroke:var(--ac2);stroke-opacity:.6}
+/* 1. hero colour follows P/L (green profit / red loss / gold flat) */
+html:root[data-amo]:not(#_) .hero{--hc:var(--ac2);border:1px solid transparent;background:radial-gradient(380px 230px at 100% 0,color-mix(in srgb,var(--hc) 21%,transparent),transparent 70%) padding-box,linear-gradient(160deg,color-mix(in srgb,var(--hc) 9%,#000),#000 72%) padding-box,conic-gradient(from var(--amo-a),color-mix(in srgb,var(--hc) 12%,transparent) 0 52%,var(--hc) 78%,color-mix(in srgb,var(--hc) 12%,transparent) 94%) border-box;box-shadow:inset 0 1px 0 var(--hl),0 0 42px -14px color-mix(in srgb,var(--hc) 70%,transparent)}
+html:root[data-amo]:not(#_) .hero.hpos{--hc:var(--g)}html:root[data-amo]:not(#_) .hero.hneg{--hc:var(--r)}
+html:root[data-amo]:not(#_) .hero:before{background:radial-gradient(closest-side,color-mix(in srgb,var(--hc) 34%,transparent),transparent)}
+/* 2. metallic gradient numbers */
+html:root[data-amo]:not(#_) .big,html:root[data-amo]:not(#_) .big2{background-image:linear-gradient(180deg,#fff 0%,var(--ac2) 58%,var(--ac) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-shadow:none}
+html:root[data-amo]:not(#_) .big.g,html:root[data-amo]:not(#_) .big2.g{background-image:linear-gradient(180deg,#fff 0%,var(--g) 100%);text-shadow:none}
+html:root[data-amo]:not(#_) .big.r,html:root[data-amo]:not(#_) .big2.r{background-image:linear-gradient(180deg,#fff 0%,var(--r) 100%);text-shadow:none}
+/* 3. fading hairlines + glass top edge */
+html:root[data-amo]:not(#_) h2:after{background:linear-gradient(90deg,color-mix(in srgb,var(--ac2) 38%,transparent),transparent)}
+html:root[data-amo]:not(#_) .row,html:root[data-amo]:not(#_) .cvw,html:root[data-amo]:not(#_) main:not([data-tab=cal]) .stl{border-image:linear-gradient(90deg,transparent,rgba(255,255,255,.13) 18%,rgba(255,255,255,.13) 82%,transparent) 1}
+html:root[data-amo]:not(#_) .card:not(.hero){background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--ac2) 55%,transparent),transparent) 50% 0/68% 1px no-repeat border-box,radial-gradient(240px 110px at 14% 0,color-mix(in srgb,var(--ac2) 9%,transparent),transparent 78%),linear-gradient(180deg,color-mix(in srgb,var(--ac2) 5.5%,#000),var(--card) 58%)}
+/* 4. press feedback */
+html:root[data-amo]:not(#_) .pri:active,html:root[data-amo]:not(#_) .fab:active,html:root[data-amo]:not(#_) .sm:active,html:root[data-amo]:not(#_) .chips button:active,html:root[data-amo]:not(#_) .seg button:active,html:root[data-amo]:not(#_) .mb:active,html:root[data-amo]:not(#_) .hc:active{transform:scale(.96);filter:brightness(1.15)}
+html:root[data-amo]:not(#_) nav button:active{transform:scale(.92)}
+/* 6. win sweep (one-shot, opacity only) */
+.wg{position:fixed;inset:0;z-index:55;pointer-events:none;opacity:0;background:radial-gradient(ellipse 95% 55% at 50% 108%,color-mix(in srgb,var(--g) 55%,transparent),transparent 72%);animation:wgo 1.3s ease-out 1 forwards;will-change:opacity}
+@media (prefers-reduced-motion:reduce){.eqd:before{animation:none}}
+
+/* ===== keyboard-open smoothness ===== */
+html:root:not(#_) body:after{bottom:auto;height:100vh;height:100lvh}
+html:root:not(#_) label input,html:root:not(#_) label select,html:root:not(#_) label textarea,html:root:not(#_) input,html:root:not(#_) textarea{transition:border-color .12s}
+html:root[data-amo]:not(#_) input:focus,html:root[data-amo]:not(#_) select:focus,html:root[data-amo]:not(#_) textarea:focus{box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 22%,transparent)}
+@media (pointer:coarse) and (max-width:899px){html.kb nav,html.kb .fab{display:none}}
+html.kb:root[data-amo]:not(#_) body:before,html.kb:root[data-amo]:not(#_) .hero:before,html.kb:root[data-amo]:not(#_) .hero:after{animation-play-state:paused}
+
+/* ===== AMOLED pack 3: risk-guard edge glow, tap ripple, glass toast, bar bloom, boot bloom, trade-row tint ===== */
+@keyframes amoBoot{0%{opacity:0;transform:scale(.3)}60%{opacity:1;transform:scale(1.25)}100%{opacity:.5;transform:scale(1)}}
+@keyframes blm{0%{opacity:0}35%{opacity:1}100%{opacity:0}}
+#rg,#rp,#bl{display:none}
+html:root[data-amo]:not(#_) #rg{display:block}html:root[data-amo]:not(#_) #rp{display:block}html:root[data-amo]:not(#_) #bl{display:block}
+/* 1. risk-guard edge glow (set from JS: data-rg = warn | halt) */
+#rg{position:fixed;top:0;left:0;right:0;height:100vh;height:100lvh;z-index:4;pointer-events:none;opacity:0;transition:opacity .6s}
+html[data-rg]:root[data-amo] #rg{opacity:1;animation:amoPulse 3s ease-in-out infinite;will-change:opacity}
+html[data-rg="halt"] #rg{background:radial-gradient(ellipse 125% 100% at 50% 50%,transparent 60%,color-mix(in srgb,var(--r) 42%,transparent) 135%)}
+html[data-rg="warn"] #rg{background:radial-gradient(ellipse 125% 100% at 50% 50%,transparent 62%,color-mix(in srgb,#ffb020 34%,transparent) 135%)}
+html.kb:root[data-amo]:not(#_) #rg{display:none}
+/* 2. tap ripple (single reused element, WAAPI transform/opacity) */
+#rp{position:fixed;top:0;left:0;width:170px;height:170px;border-radius:50%;z-index:80;pointer-events:none;opacity:0;background:radial-gradient(closest-side,color-mix(in srgb,var(--ac2) 48%,transparent),transparent);will-change:transform,opacity}
+/* 3. glass toast with coloured aura */
+html:root[data-amo]:not(#_) #toast{background:rgba(10,10,12,.94);color:var(--tx);border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 0 0 1px rgba(0,0,0,.8),0 12px 30px -8px #000}
+html:root[data-amo]:not(#_) #toast[data-k=ok]{border-color:color-mix(in srgb,var(--g) 42%,transparent);box-shadow:0 0 0 1px rgba(0,0,0,.8),0 0 24px -4px color-mix(in srgb,var(--g) 65%,transparent),0 12px 30px -8px #000}
+html:root[data-amo]:not(#_) #toast[data-k=err]{border-color:color-mix(in srgb,var(--r) 42%,transparent);box-shadow:0 0 0 1px rgba(0,0,0,.8),0 0 24px -4px color-mix(in srgb,var(--r) 65%,transparent),0 12px 30px -8px #000}
+/* 4. progress bars: bloom in their own colour + glowing status dot */
+html:root[data-amo]:not(#_) .bar{box-shadow:inset 0 1px 2px rgba(0,0,0,.65)}
+html:root[data-amo]:not(#_) .bar i{box-shadow:0 0 14px -2px var(--ac2),inset 0 1px 0 rgba(255,255,255,.35)}
+html:root[data-amo]:not(#_) .bar i[style*="var(--g)"]{box-shadow:0 0 14px -2px var(--g),inset 0 1px 0 rgba(255,255,255,.3)}
+html:root[data-amo]:not(#_) .bar i[style*="var(--r)"]{box-shadow:0 0 14px -2px var(--r),inset 0 1px 0 rgba(255,255,255,.3)}
+html:root[data-amo]:not(#_) .hero b>i[style*="border-radius:50%"]{position:relative;flex:0 0 auto}
+html:root[data-amo]:not(#_) .hero b>i[style*="border-radius:50%"]:after{content:"";position:absolute;inset:-5px;border-radius:50%;background:inherit;opacity:.5;animation:amoPulse 2.2s ease-in-out infinite;will-change:opacity}
+/* 5. boot bloom (class .boot is on <html> for ~1.6s after launch) */
+#bl{position:fixed;top:0;left:0;right:0;height:60vh;z-index:3;pointer-events:none;opacity:0;background:radial-gradient(ellipse 80% 70% at 50% 0,color-mix(in srgb,var(--ac2) 30%,transparent),transparent 75%)}
+html.boot #bl{animation:blm 1.6s ease-out 1 forwards}
+html.boot:root[data-amo]:not(#_) .hero:before{animation:amoBoot 1.4s ease-out 1,amoBreath 5.5s ease-in-out 1.4s infinite}
+/* 6. trade rows: result-coloured edge strip + soft tint */
+html:root[data-amo]:not(#_) .tr{--tt:var(--g)}html:root[data-amo]:not(#_) .tr.L{--tt:var(--r)}html:root[data-amo]:not(#_) .tr.B{--tt:var(--mu)}
+html:root[data-amo]:not(#_) .tr:before{box-shadow:0 0 14px 1px var(--tt)}html:root[data-amo]:not(#_) .tr.B:before{box-shadow:none}
+html:root[data-amo]:not(#_) .card.tr{background:linear-gradient(90deg,color-mix(in srgb,var(--tt) 10%,transparent),transparent 46%),linear-gradient(90deg,transparent,color-mix(in srgb,var(--ac2) 55%,transparent),transparent) 50% 0/68% 1px no-repeat border-box,radial-gradient(240px 110px at 14% 0,color-mix(in srgb,var(--ac2) 9%,transparent),transparent 78%),linear-gradient(180deg,color-mix(in srgb,var(--ac2) 5.5%,#000),var(--card) 58%)}
+@media (prefers-reduced-motion:reduce){html[data-rg] #rg,.hero b>i:after{animation:none}}
 </style></head><body><main id="v"></main><div id="tb"><span id="tbt"></span></div><div id="toast"></div><button class="fab" onclick="eid=0;tab='add';go();scrollTo({top:0,behavior:'instant'})" aria-label="Add trade"></button><nav id="nav"></nav>
 <script>
-const D={"trades":[],"L":{"pr":["XAUUSD","EURUSD","GBPUSD","USDJPY","GBPJPY","US30","NAS100","BTCUSD"],"su":["Asia","Overlap 1","London","Overlap 2","New York"],"sd":["Long","Short"],"se":["Breakout","Pullback","Reversal","Trend continuation","Range","News play"],"tf":["1 Min","5 Min","15 Min","1 Hour","4 Hour","Daily"],"cf":["Break of structure","Change of character","Retest","Engulfing candle","Rejection wick","Divergence"],"er":["TP Hit","SL Hit","Manual Close","Trailing Stop"],"cp":["Yes","No"],"mk":["Trending","Ranging","High-Impact News","Choppy"],"em":["Calm","Confident","FOMO","Anxious","Revenge","Impatient","Hesitant","Greedy"]}},K='xj_v1',$=s=>document.querySelector(s);
+const D={"trades":[],"L":{"pr":["XAUUSD","EURUSD","GBPUSD","USDJPY","GBPJPY","US30","NAS100","BTCUSD"],"su":["Asia","Overlap 1","London","Overlap 2","New York"],"sd":["Long","Short"],"se":["Breakout","Pullback","Reversal","Trend continuation","Range","News play"],"tf":["1 Min","5 Min","15 Min","1 Hour","4 Hour","Daily"],"cf":["Break of structure","Change of character","Retest","Engulfing candle","Rejection wick","Divergence"],"er":["TP Hit","SL Hit","Manual Close","Trailing Stop"],"cp":["Yes","No"],"mk":["Trending","Ranging","High-Impact News","Choppy"],"em":["Calm","Confident","FOMO","Anxious","Revenge","Impatient","Hesitant","Greedy"]}},K0='xj_v1',AK=K0+'_acc',AC=(()=>{let o=null;try{o=JSON.parse(localStorage.getItem(AK))}catch(x){}o=(o&&typeof o=='object')?o:{};let l=[];if(Array.isArray(o.l))l=o.l.filter(x=>x&&/^\d{1,3}$/.test(String(x.id))).map(x=>({id:String(x.id),n:String(x.n||'').slice(0,16)||'Account'}));else{const n=(o.n&&typeof o.n=='object')?o.n:{};l=[{id:'1',n:String(n['1']||'Live').slice(0,16)},{id:'2',n:String(n['2']||'Demo').slice(0,16)}]}if(!l.length)l=[{id:'1',n:'Live'}];return{a:l.some(x=>x.id==String(o.a))?String(o.a):l[0].id,l,nx:Math.max(+o.nx||0,Math.max(...l.map(x=>+x.id))+1)}})(),K=AC.a=='1'?K0:K0+'_a'+AC.a,$=s=>document.querySelector(s);
 /* ===== Cloud sync: Google login + Firebase Firestore ===== */
 /* STEP: paste YOUR Firebase web-app config here (Firebase console > Project settings > Your apps) */
 
@@ -637,12 +824,12 @@ if('L' in s&&(!s.L||typeof s.L!=='object'||Array.isArray(s.L)))delete s.L;return
 const FB_CONFIG={apiKey:"AIzaSyA3P6sX_HZPlCacb-oAc4shItP7j315AbQ",authDomain:"journal-52c41.firebaseapp.com",projectId:"journal-52c41",storageBucket:"journal-52c41.firebasestorage.app",messagingSenderId:"143685661471",appId:"1:143685661471:web:92f41e817d7e14c41cf62a"};
 const SYK=K+'_ts',SYL=K+'_sy',SYD=(()=>{try{let d=localStorage.getItem(K+'_dev');if(!d){d=Math.random().toString(36).slice(2,10);localStorage.setItem(K+'_dev',d)}return d}catch(x){return Math.random().toString(36).slice(2,10)}})();
 let SY={st:'init',uid:null,user:null,last:0,err:'',tm:null,busy:false,pend:false,un:null},FS=null,AU=null;
-const syN=k=>{try{return+localStorage.getItem(k)||0}catch(x){return 0}},syS=(k,v)=>{try{localStorage.setItem(k,String(v))}catch(x){}},syLk=()=>SYL+'_'+SY.uid,syB=()=>'users/'+SY.uid+'/journal/';
+const syN=k=>{try{return+localStorage.getItem(k)||0}catch(x){return 0}},syS=(k,v)=>{try{localStorage.setItem(k,String(v))}catch(x){}},syLk=()=>SYL+'_'+SY.uid,syB=()=>'users/'+SY.uid+'/journal/'+(AC.a=='1'?'':'a'+AC.a+'_');
 
 const PL=[{"id":"gold","n":"Gold","d":{"bg":"#05060a","card":"#0b0f15","c1":"#11161f","c2":"#161c27","ac":"#c9a24a","ac2":"#efd699","g":["#f4e0ab","#d9b15a","#b78a30"],"on":"#1b1405","gl":"212,164,55","glow2":"70,90,200"},"l":{"bg":"#f6f3ec","c2":"#f2eee4","ac":"#a67c1c","ac2":"#cfa13a","g":["#e8c777","#c99a33","#a67c1c"],"on":"#1b1405","gl":"201,154,51","glow2":"80,100,200"}},{"id":"sapphire","n":"Sapphire","d":{"bg":"#04070e","card":"#0a1019","c1":"#101826","c2":"#152033","ac":"#4f8cff","ac2":"#a4c8ff","g":["#bcd7ff","#6a9dff","#4e7ee5"],"on":"#04122e","gl":"79,140,255","glow2":"120,80,220"},"l":{"bg":"#f3f6fc","c2":"#eaeff9","ac":"#2a62d4","ac2":"#4f86f5","g":["#2f68dc","#2a62d4","#2858c4"],"on":"#ffffff","gl":"79,134,245","glow2":"140,90,230"}},{"id":"violet","n":"Violet","d":{"bg":"#07050d","card":"#0f0b18","c1":"#171123","c2":"#1d162d","ac":"#a273ff","ac2":"#d3bcff","g":["#dcc9ff","#a273ff","#8d64e7"],"on":"#12062e","gl":"162,115,255","glow2":"255,90,160"},"l":{"bg":"#f6f3fc","c2":"#eee9f9","ac":"#7c4de0","ac2":"#9a6ff5","g":["#7d55e0","#7448d6","#6a3fc8"],"on":"#ffffff","gl":"143,95,240","glow2":"255,100,170"}},{"id":"rose","n":"Rose","d":{"bg":"#0b0508","card":"#150b10","c1":"#1e1018","c2":"#261620","ac":"#ff6f9f","ac2":"#ffb3cd","g":["#ffc6da","#ff7aa5","#e04a7f"],"on":"#2a0614","gl":"255,111,159","glow2":"255,160,90"},"l":{"bg":"#fcf3f6","c2":"#f9e9ee","ac":"#bb3b63","ac2":"#f2698f","g":["#c9476f","#bb3b63","#a52f55"],"on":"#ffffff","gl":"242,85,127","glow2":"255,170,100"}},{"id":"copper","n":"Copper","d":{"bg":"#0a0604","card":"#130d09","c1":"#1b130d","c2":"#231911","ac":"#e8935a","ac2":"#f6c49e","g":["#f9d3b0","#ec9a62","#c96b30"],"on":"#2a1204","gl":"232,147,90","glow2":"255,200,80"},"l":{"bg":"#fcf6f1","c2":"#f8ece2","ac":"#c4662d","ac2":"#e08a55","g":["#b95a21","#c2500b","#b25a24"],"on":"#ffffff","gl":"217,120,62","glow2":"255,200,90"}},{"id":"ice","n":"Ice","d":{"bg":"#04080b","card":"#0a1216","c1":"#101b21","c2":"#15242b","ac":"#3ccbe6","ac2":"#a2ecf8","g":["#b5f1fb","#4fd2ea","#1f9fba"],"on":"#02222a","gl":"60,203,230","glow2":"80,120,255"},"l":{"bg":"#f1f9fb","c2":"#e5f3f7","ac":"#138fa8","ac2":"#35b8d3","g":["#127e97","#0c7e95","#147d94"],"on":"#ffffff","gl":"31,169,198","glow2":"90,120,255"}},{"id":"emerald","n":"Emerald","d":{"bg":"#04080a","card":"#0a1210","c1":"#0f1b17","c2":"#14251f","ac":"#34c98a","ac2":"#9ae8c6","g":["#b4f0d4","#46d097","#1f9a66"],"on":"#03231a","gl":"52,201,138","glow2":"60,180,220"},"l":{"bg":"#f1faf6","c2":"#e4f4ec","ac":"#1b9965","ac2":"#38c08a","g":["#1a8558","#158557","#198257"],"on":"#ffffff","gl":"39,181,122","glow2":"60,170,220"}},{"id":"platinum","n":"Platinum","d":{"bg":"#07080a","card":"#0f1114","c1":"#16191e","c2":"#1d2127","ac":"#c3cbd8","ac2":"#eef1f6","g":["#f4f6fa","#c3cbd8","#8b95a5"],"on":"#111418","gl":"195,203,216","glow2":"120,140,180"},"l":{"bg":"#f4f5f7","c2":"#eaecf0","ac":"#5b667a","ac2":"#7e8aa0","g":["#67768e","#6a7587","#4e586a"],"on":"#ffffff","gl":"112,123,142","glow2":"100,130,190"}},{"id":"sunset","n":"Sunset","d":{"bg":"#0a0507","card":"#140b0e","c1":"#1d1115","c2":"#25161b","ac":"#ff8a5c","ac2":"#ffc0a0","g":["#ffb089","#ff7a63","#ff4f8b"],"on":"#2a0a10","gl":"255,122,99","glow2":"255,79,139"},"l":{"bg":"#fdf4f1","c2":"#faeae4","ac":"#c2423b","ac2":"#ff8059","g":["#c4522a","#c2423b","#b02f5e"],"on":"#ffffff","gl":"255,111,94","glow2":"232,56,111"}},{"id":"nothing","n":"Nothing","d":{"bg":"#000000","card":"#0b0b0b","c1":"#101010","c2":"#181818","ac":"#d71921","ac2":"#ff5a60","g":["#ffffff","#f4f4f4","#dcdcdc"],"on":"#000000","gl":"215,25,33","glow2":"60,60,60"},"l":{"bg":"#ececec","c2":"#e0e0e0","ac":"#d71921","ac2":"#e5323a","g":["#1c1c1c","#101010","#000000"],"on":"#ffffff","gl":"215,25,33","glow2":"0,0,0"}}];
 (()=>{const g=a=>`linear-gradient(180deg,${a[0]} 0%,${a[1]} 52%,${a[2]} 100%)`;let css='';PL.forEach(p=>{if(p.id=='gold')return;const d=p.d,l=p.l,dk=`--bg:${d.bg};--card:${d.card};--c1:${d.c1};--c2:${d.c2};--ac:${d.ac};--ac2:${d.ac2};--gold:${g(d.g)};--on:${d.on};--gl:rgba(${d.gl},.15);--glow2:rgba(${d.glow2},.11)`,lt=`--bg:${l.bg};--c2:${l.c2};--ac:${l.ac};--ac2:${l.ac2};--gold:${g(l.g)};--on:${l.on};--gl:rgba(${l.gl},.15);--glow2:rgba(${l.glow2},.07)`;css+=`:root[data-pal="${p.id}"]{${lt}}@media (prefers-color-scheme:dark){:root[data-pal="${p.id}"]:not([data-theme="light"]){${dk}}}:root[data-pal="${p.id}"][data-theme="dark"]{${dk}}`});const s=document.createElement('style');s.id='pal';s.textContent=css;document.head.appendChild(s)})();
 const applyTh=()=>{const r=document.documentElement;if(S.th)r.dataset.theme=S.th;else delete r.dataset.theme},
-applyPal=()=>{const r=document.documentElement;cpalBuild();const pl=S.ui=='nothing'?'nothing':S.pal;if(pl&&pl!='gold'&&(PL.some(p=>p.id==pl)||(pl=='custom'&&S.cc)))r.dataset.pal=pl;else delete r.dataset.pal;if(S.ui&&S.ui!='modern')r.dataset.ui=S.ui;else delete r.dataset.ui;const m=document.querySelector('meta[name="theme-color"]');if(m)setTimeout(()=>{try{const v=getComputedStyle(r).getPropertyValue('--bg').trim();if(v)m.content=v}catch(e){}},30)};
+applyPal=()=>{const r=document.documentElement;cpalBuild();applyAm();const pl=S.ui=='nothing'?'nothing':S.pal;if(pl&&pl!='gold'&&(PL.some(p=>p.id==pl)||(pl=='custom'&&S.cc)))r.dataset.pal=pl;else delete r.dataset.pal;if(S.ui&&S.ui!='modern')r.dataset.ui=S.ui;else delete r.dataset.ui;const m=document.querySelector('meta[name="theme-color"]');if(m)setTimeout(()=>{try{const v=getComputedStyle(r).getPropertyValue('--bg').trim();if(v)m.content=v}catch(e){}},30)};
 const SW0=[{n:'Asia',s:'02:30',e:'11:30'},{n:'Overlap 1',s:'11:30',e:'14:30'},{n:'London',s:'14:30',e:'17:30'},{n:'Overlap 2',s:'17:30',e:'20:30'},{n:'New York',s:'20:30',e:'02:30'}],
 SWs=()=>(S.sw&&S.sw.length?S.sw:SW0),mins=t=>{const p=String(t).split(':');return(+p[0])*60+(+p[1]||0)},
 sessOf=tm=>{if(!/^\d{1,2}:\d{2}/.test(tm||''))return'';const x=mins(tm);for(const w of SWs()){const a=mins(w.s),b=mins(w.e);if(a<=b?(x>=a&&x<b):(x>=a||x<b))return w.n}return''},
@@ -676,16 +863,18 @@ sched=k=>{const n=Date.now();if(n-_lf<50)return;_lf=n;setTimeout(()=>{if(Date.no
 addEventListener('pointerdown',()=>{if(S.sn!==false)ac()},{capture:true,passive:true});
 addEventListener('click',ev=>{const t=ev.target.closest&&ev.target.closest(SEL);if(!t||t.disabled||t.hasAttribute('data-nofx'))return;sched(kind(t))},true);
 addEventListener('change',ev=>{const t=ev.target;if(t&&t.matches&&t.matches('select,input[type=checkbox],input[type=radio],input[type=date],input[type=time]'))sched('sel')},true)})();
-let _tt;const toast=t=>{_rf=Date.now();if(!_qt)fx(toastK(t));const o=$('#toast');o.textContent=t;o.style.display='block';o.style.animation='none';void o.offsetWidth;o.style.animation='';clearTimeout(_tt);_tt=setTimeout(()=>o.style.display='none',2200)};
+let _tt;const toast=t=>{_rf=Date.now();if(!_qt)fx(toastK(t));const o=$('#toast');o.textContent=t;o.dataset.k=toastK(t);o.style.display='block';o.style.animation='none';void o.offsetWidth;o.style.animation='';clearTimeout(_tt);_tt=setTimeout(()=>o.style.display='none',2200)};
 
 /* ===== Confirm dialog ===== */
 let _dg=null;
+['pointerdown','keydown'].forEach(t=>addEventListener(t,()=>{try{if(S.sn!==false)ac()}catch(x){}},{once:true,passive:true,capture:true}));
+function dlkS(d){const f=ev=>{if(!ev.target.closest('.dlg-c,.pk-s'))ev.preventDefault()};d.addEventListener('wheel',f,{passive:false});d.addEventListener('touchmove',f,{passive:false})}
 function askClose(){if(!_dg)return;const d=_dg;_dg=null;document.removeEventListener('keydown',d._k,true);document.documentElement.style.overflow=d._o;d.remove()}
 function ask(o){askClose();_rf=Date.now();fx(o.danger?'warn':'sel');
 const d=document.createElement('div');d.className='dlg';d.setAttribute('role','alertdialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','dlg_t');
 d.innerHTML=`<div class="dlg-b"></div><div class="dlg-c"><b id="dlg_t">${e(o.t)}</b><div class="sub">${o.m||''}</div>${o.w?`<input id="dlg_w" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" enterkeyhint="done" placeholder="${e(o.w)}" aria-label="Confirmation word">`:''}${o.x?`<button class="sm dlg-x" data-xtra>${e(o.x.l)}</button>`:''}<div class="dlg-a"><button class="sm" data-c>Cancel</button><button class="sm ${o.danger?'go':'ok'}" data-y${o.w?' disabled':''}>${e(o.ok||'Confirm')}</button></div></div>`;
 const y=d.querySelector('[data-y]'),w=d.querySelector('#dlg_w');
-d._o=document.documentElement.style.overflow;document.documentElement.style.overflow='hidden';
+d._o=document.documentElement.style.overflow;dlkS(d);
 d._k=ev=>{if(ev.key=='Escape'){ev.preventDefault();askClose()}};document.addEventListener('keydown',d._k,true);
 if(w){w.addEventListener('input',()=>{y.disabled=w.value.trim().toUpperCase()!==o.w});w.addEventListener('keydown',ev=>{if(ev.key=='Enter'&&!y.disabled){ev.preventDefault();y.click()}})}
 d.addEventListener('click',ev=>{const t=ev.target;
@@ -734,18 +923,18 @@ function addck(){if(!$('#ck_n'))return;const v=$('#ck_n').value.trim();if(!v)ret
 function delck(){if(S.ck&&S.ck.length){S.ck.pop();save();go()}}
 function lc(){if(!$('#lc_r'))return;const b=R(()=>true).bal,r=+$('#lc_r').value,s=+$('#lc_s').value,d=b*r/100;$('#lc_d').textContent='$'+usd(d);$('#lc_l').textContent=s>0?(d/(s*100)).toFixed(3):'—'}
 function csv(){const k=['id','d','tm','pr','su','sd','se','tf','cf','lot','rr','en','sl','tp','ex','er','rs','pl','cp','du','mk','em','th','ls','ln'],q=v=>'"'+String(v??'').replace(/"/g,'""')+'"',s=k.join(',')+'\n'+T.map(x=>k.map(c=>q(x[c])).join(',')).join('\n');try{navigator.clipboard.writeText(s).then(()=>toast('CSV copied ✓ paste in Excel / Sheets'),()=>toast('Copy blocked'))}catch(x){toast('Copy blocked')}}
-function area(q,mk,ds){const W=340,H=170,L=46,Rr=8,Tp=12,B=22,E=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="margin-top:8px">`;
+function area(q,mk,ds){const W=340,H=170,L=46,Rr=8,Tp=12,B=22,E=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block">`;
 if(!q.length)return E+`<line x1="${L}" x2="${W-Rr}" y1="85" y2="85" stroke="var(--bd)" stroke-width="2" stroke-dasharray="1 6" stroke-linecap="round"/><text x="${(L+W-Rr)/2}" y="112" text-anchor="middle" font-size="10" font-weight="600" fill="var(--mu)">Log a trade to start your equity curve</text></svg>`;
 ds=['Start'].concat(ds||[]);mk=(mk||[]).map(k=>({...k,i:k.i+1}));q=[0].concat(q);const n=q.length,lo=Math.min(...q),hi=Math.max(...q),span=(hi-lo)||1,raw=span/3,mg=10**Math.floor(Math.log10(raw)),st=[1,2,2.5,5,10].map(k=>k*mg).find(v=>v>=raw);
 let t0=Math.floor(lo/st+1e-9)*st,t1=Math.ceil(hi/st-1e-9)*st;if(t1<=t0)t1=t0+st;
 const X=i=>L+i*(W-L-Rr)/(n-1),Y=v=>Tp+(t1-v)/(t1-t0)*(H-Tp-B),tk=[];for(let v=t0;v<=t1+st/2;v+=st)tk.push(+v.toFixed(8));
 const pts=q.map((v,i)=>X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' L'),pi=q.indexOf(hi),last=q[n-1],y0=Y(0);
 return`<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;position:relative"><span class="sub" id="eql">Trade ${n-1} · latest</span><b id="eqv" class="${cl(last)}" style="font-size:15px">${eqf(last)}</b></div>
-${E.replace('<svg ','<svg id="eqs" data-q=\''+JSON.stringify(q)+'\' data-d=\''+JSON.stringify(ds).replace(/'/g,'')+'\' data-t0="'+t0+'" data-t1="'+t1+'" style="touch-action:pan-y;cursor:crosshair" onpointerdown="eqm(event,this)" onpointermove="eqm(event,this)" onpointerleave="eqe(this)" onpointerup="eqe(this)" ')}<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac2)" stop-opacity=".32"/><stop offset="1" stop-color="var(--ac2)" stop-opacity="0"/></linearGradient></defs>${tk.map(v=>`<line x1="${L}" x2="${W-Rr}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--bd)" stroke-width=".6"/><text x="${L-6}" y="${Y(v)+3}" text-anchor="end" font-size="8" font-weight="700" fill="var(--mu)">${v<0?'−':''}$${cp(Math.abs(v)).replace('+','')}</text>`).join('')}<line x1="${L}" x2="${W-Rr}" y1="${y0}" y2="${y0}" stroke="var(--mu)" stroke-width=".8" stroke-dasharray="3 3"/><path d="M${pts} L${X(n-1)} ${y0} L${X(0)} ${y0}Z" fill="url(#ag)"/><path d="M${pts}" pathLength="1" fill="none" stroke="var(--ac2)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>${hi>0&&pi<n-1?`<circle cx="${X(pi)}" cy="${Y(hi)}" r="3.5" fill="var(--card)" stroke="var(--g)" stroke-width="1.8"/><text x="${Math.min(W-30,Math.max(L+24,X(pi)))}" y="${Y(hi)-7}" text-anchor="middle" font-size="8" font-weight="800" fill="var(--g)">Peak +$${cp(hi).replace('+','')}</text>`:''}${mk.map(k=>`<circle cx="${X(k.i)}" cy="${Y(q[k.i])}" r="4.5" fill="var(--card)" stroke="var(--${k.w?'r':'g'})" stroke-width="2"/>`).join('')}<circle cx="${X(n-1)}" cy="${Y(last)}" r="4" fill="var(--ac2)" stroke="var(--card)" stroke-width="2"/><line id="eqx" y1="${Tp}" y2="${H-B}" stroke="var(--mu)" stroke-width=".8" style="visibility:hidden"/><circle id="eqc" r="4.5" fill="var(--ac2)" stroke="var(--card)" stroke-width="2" style="visibility:hidden"/><text x="${L}" y="${H-6}" font-size="8" font-weight="600" fill="var(--mu)">Start</text><text x="${W-Rr}" y="${H-6}" text-anchor="end" font-size="8" font-weight="600" fill="var(--mu)">Trade ${n-1}</text></svg>`}
+<div class="eqw">${E.replace('<svg ','<svg id="eqs" data-q=\''+JSON.stringify(q)+'\' data-d=\''+JSON.stringify(ds).replace(/'/g,'')+'\' data-t0="'+t0+'" data-t1="'+t1+'" style="touch-action:pan-y;cursor:crosshair" onpointerdown="eqm(event,this)" onpointermove="eqm(event,this)" onpointerleave="eqe(this)" onpointerup="eqe(this)" onpointercancel="eqe(this)" ')}<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac2)" stop-opacity=".32"/><stop offset="1" stop-color="var(--ac2)" stop-opacity="0"/></linearGradient></defs>${tk.map(v=>`<line x1="${L}" x2="${W-Rr}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--bd)" stroke-width=".6"/><text x="${L-6}" y="${Y(v)+3}" text-anchor="end" font-size="8" font-weight="700" fill="var(--mu)">${v<0?'−':''}$${cp(Math.abs(v)).replace('+','')}</text>`).join('')}<line x1="${L}" x2="${W-Rr}" y1="${y0}" y2="${y0}" stroke="var(--mu)" stroke-width=".8" stroke-dasharray="3 3"/><path d="M${pts} L${X(n-1)} ${y0} L${X(0)} ${y0}Z" fill="url(#ag)"/><path d="M${pts}" pathLength="1" fill="none" stroke="var(--ac2)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>${hi>0&&pi<n-1?`<circle cx="${X(pi)}" cy="${Y(hi)}" r="3.5" fill="var(--card)" stroke="var(--g)" stroke-width="1.8"/><text x="${Math.min(W-30,Math.max(L+24,X(pi)))}" y="${Y(hi)-7}" text-anchor="middle" font-size="8" font-weight="800" fill="var(--g)">Peak +$${cp(hi).replace('+','')}</text>`:''}${mk.map(k=>`<circle cx="${X(k.i)}" cy="${Y(q[k.i])}" r="4.5" fill="var(--card)" stroke="var(--${k.w?'r':'g'})" stroke-width="2"/>`).join('')}<circle cx="${X(n-1)}" cy="${Y(last)}" r="4" fill="var(--ac2)" stroke="var(--card)" stroke-width="2"/><line id="eqx" y1="${Tp}" y2="${H-B}" stroke="var(--mu)" stroke-width=".8" style="visibility:hidden"/><circle id="eqh" r="11" fill="var(--ac2)" opacity=".2" style="visibility:hidden"/><circle id="eqc" r="4.5" fill="var(--ac2)" stroke="var(--card)" stroke-width="2" style="visibility:hidden"/><text x="${L}" y="${H-6}" font-size="8" font-weight="600" fill="var(--mu)">Start</text><text x="${W-Rr}" y="${H-6}" text-anchor="end" font-size="8" font-weight="600" fill="var(--mu)">Trade ${n-1}</text></svg><i class="eqd" style="left:${(X(n-1)/W*100).toFixed(2)}%;top:${(Y(last)/H*100).toFixed(2)}%"></i></div>`}
 const EQC=new WeakMap();
 function eqm(ev,sv){let C=EQC.get(sv);if(!C){C={q:JSON.parse(sv.dataset.q),d:JSON.parse(sv.dataset.d)};EQC.set(sv,C)}const q=C.q,d=C.d,r=sv.getBoundingClientRect(),W=340,L=46,Rr=8,n=q.length,t0=+sv.dataset.t0,t1=+sv.dataset.t1,x=(ev.clientX-r.left)/r.width*W,i=Math.max(0,Math.min(n-1,Math.round((x-L)/(W-L-Rr)*(n-1)))),X=L+i*(W-L-Rr)/(n-1),Y=12+(t1-q[i])/(t1-t0)*136,l=$('#eqx'),c=$('#eqc');
-l.setAttribute('x1',X);l.setAttribute('x2',X);c.setAttribute('cx',X);c.setAttribute('cy',Y);l.style.visibility=c.style.visibility='visible';$('#eql').textContent=i?'Trade '+i+' · '+d[i]:'Start';const v=$('#eqv');v.textContent=eqf(q[i]);v.className=cl(q[i])}
-function eqe(sv){const C=EQC.get(sv),q=C?C.q:JSON.parse(sv.dataset.q),n=q.length;$('#eqx').style.visibility=$('#eqc').style.visibility='hidden';$('#eql').textContent='Trade '+(n-1)+' · latest';const v=$('#eqv');v.textContent=eqf(q[n-1]);v.className=cl(q[n-1])}
+l.setAttribute('x1',X);l.setAttribute('x2',X);c.setAttribute('cx',X);c.setAttribute('cy',Y);l.style.visibility=c.style.visibility='visible';{const h=$('#eqh');if(h){h.setAttribute('cx',X);h.setAttribute('cy',Y);h.style.visibility='visible'}}$('#eql').textContent=i?'Trade '+i+' · '+d[i]:'Start';const v=$('#eqv');v.textContent=eqf(q[i]);v.className=cl(q[i])}
+function eqe(sv){const C=EQC.get(sv),q=C?C.q:JSON.parse(sv.dataset.q),n=q.length;$('#eqx').style.visibility=$('#eqc').style.visibility='hidden';{const h=$('#eqh');if(h)h.style.visibility='hidden'}$('#eql').textContent='Trade '+(n-1)+' · latest';const v=$('#eqv');v.textContent=eqf(q[n-1]);v.className=cl(q[n-1])}
 const eqf=v=>{const t=m(v);return t.length>13?(v<0?'−':'+')+'$'+cp(Math.abs(v)).replace('+',''):t}
 const mpick=yr=>yr?`<div class="chips"><select onchange="mo=this.value+mo.slice(4);go();anim()">${opts([...new Set(T.map(x=>x.d.slice(0,4)))],mo.slice(0,4))}</select></div>`:`<div class="chips"><input type="month" value="${mo}" onchange="mo=this.value||mo;go();anim()"></div>`;
 const MON=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],DW=['SUN','MON','TUE','WED','THU','FRI','SAT'],clk=()=>{const d=IST();return{t:d.toISOString().slice(11,16),s:DW[d.getUTCDay()]+' '+d.getUTCDate()+' '+MON[d.getUTCMonth()]}};
@@ -756,7 +945,7 @@ function home(){const a=per(),s=Q(a),all=Q(T),RA=R(()=>true),b=RA.bal,inP=d=>pt=
 const c=[['Total trades',s.n],['Profit factor',s.pf.toFixed(2)],['Payoff ratio',s.w&&s.l?((s.gp/s.w)/(s.gl/s.l)).toFixed(2):'—'],['Recovery factor',s.dd?(s.net/s.dd).toFixed(2):'—'],['Avg P/L per trade',m(s.avg),cl(s.avg)],['Avg planned R:R',s.rr.toFixed(2)],['Best trade',m(s.best),'g'],['Worst trade',m(s.worst),'r'],['Total profit','$'+usd(s.gp),'g'],['Total loss','−$'+usd(s.gl),'r'],['Max drawdown',`$${usd(s.dd)} (${pc(RP.ddp)})`,'r'],['Streak now / best W / L',`${s.cur>0?'+':''}${s.cur} / ${s.ms} / ${s.ml}`],['Rule compliance',s.cn?pc(s.comp)+` (${s.ru}/${s.cn})`:'Not logged'],['Win % when rules followed',s.ru?pc(s.wrr):'Not logged']];
 const rf=T.slice(-15),rw=rf.filter(x=>x.pl>0).length,rm=Math.max(1,...rf.map(x=>Math.abs(x.pl)));
 return`<header><div><div class="eyebrow">${IST().toLocaleDateString('en',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'})}</div><h1>Overview</h1></div><button class="ib" onclick="tgTh()">${I('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>')}</button></header><div id="syb">${syBn()}</div>${T.length?'':wel()}${S.ui&&S.ui!='modern'?clockW():''}
-<div class="card hero"><button class="sm" style="position:absolute;right:16px;top:14px;margin:0;z-index:2" onclick="tab='set';go();scrollTo({top:0,behavior:'instant'})">Deposit / Withdraw</button><span class="t">Account equity</span><div class="big" id="bal" data-v="${b}">$${usd(b)}</div><div class="chips2"><span class="chip ${cl(all.net)}">${m(all.net)} all-time</span><span class="chip ${cl(all.net)}">${pc(RA.ret)} return</span></div>${cfs.length?`<div class="sub" style="position:relative;margin-top:10px">Deposited $${usd(dpS)} · Withdrawn $${usd(wdS)}</div>`:''}${area(s.eq,mk,a.map(x=>x.d))}<div class="sub" style="margin-top:2px">Equity curve · ${P}${cfs.length?' · excludes deposits &amp; withdrawals':''}${mk.length?' · ○ red withdrawal, ○ green deposit':''}</div>
+<div class="card hero ${all.net>0?'hpos':all.net<0?'hneg':''}"><button class="sm" style="position:absolute;right:16px;top:14px;margin:0;z-index:2" onclick="tab='set';go();scrollTo({top:0,behavior:'instant'})">Deposit / Withdraw</button><span class="t">Account equity</span><div class="big" id="bal" data-v="${b}">$${usd(b)}</div><div class="chips2"><span class="chip ${cl(all.net)}">${m(all.net)} all-time</span><span class="chip ${cl(all.net)}">${pc(RA.ret)} return</span></div>${cfs.length?`<div class="sub" style="position:relative;margin-top:10px">Deposited $${usd(dpS)} · Withdrawn $${usd(wdS)}</div>`:''}${area(s.eq,mk,a.map(x=>x.d))}<div class="sub" style="margin-top:2px">Equity curve · ${P}${cfs.length?' · excludes deposits &amp; withdrawals':''}${mk.length?' · ○ red withdrawal, ○ green deposit':''}</div>
 <div class="stl"><div><span class="t">Win rate</span><b>${pc(all.wr)}</b></div><div><span class="t">PF</span><b>${all.pf.toFixed(2)}</b></div><div><span class="t">Max DD</span><b class="r">${pc(RA.ddp)}</b></div></div></div>
 ${riskCard()}
 <div class="seg">${[['all','All-time'],['year','Year'],['month','Month']].map(([k,l])=>`<button class="${pt==k?'on':''}" onclick="pt='${k}';go();anim()">${l}</button>`).join('')}</div>${pt=='all'?'':mpick(pt=='year')}
@@ -788,20 +977,21 @@ function nlrow(a,k){if(!k)return'';const b=a.filter(x=>!x[k]);if(!b.length)retur
 function TB(){const a=per();return'<h2>Edge analysis</h2>'+TS.map(([t,k,L])=>k=='h'?hourCard(a):`<div class="card"><span class="t">${t}</span>${(k=='h'?hrs():k===null?DN.slice(1,6).concat(DN.filter((d,i)=>(i==0||i==6)&&T.some(x=>dn(x.d)==d))):vals(k)).map(v=>{const s=Q(a.filter(x=>(k=='h'?hr(x):k?x[k]:dn(x.d))==v));return`<div class="row"><div><b>${e(v)}</b> <span class="sub">${s.n} trades</span><div class="bar"><i style="width:${s.wr*100}%;background:var(--${s.wr>=.5?'g':'r'})"></i></div></div><div style="flex:0 0 auto;text-align:right"><b class="${cl(s.net)}">${s.n?m(s.net):'—'}</b><div class="sub">${s.n?pc(s.wr)+' win':''}</div></div></div>`}).join('')}${nlrow(a,k)}</div>`).join('')}
 function pk(k){sel=k;go();if(sel)setTimeout(()=>{const p=document.getElementById('dp');p&&p.scrollIntoView({behavior:'smooth',block:'start'})},60)}
 function cal(){const[y,mm]=mo.split('-').map(Number),f=new Date(y,mm-1,1).getDay(),nd=new Date(y,mm,0).getDate(),a=T.filter(x=>x.d.slice(0,7)==mo),dm={};
-a.forEach(x=>{const o=dm[x.d]=dm[x.d]||{p:0,n:0,r:[]};o.p+=x.pl||0;o.n++;o.r.push(x.pl>0?'g':x.pl<0?'r':'mu')});if(sel&&sel.slice(0,7)!=mo)sel='';if(!sel){const ks=Object.keys(dm).sort();sel=ks.length?ks[ks.length-1]:''}
-const s=Q(a),dv=Object.values(dm),mx=Math.max(1,...dv.map(o=>Math.abs(o.p))),gd=dv.filter(o=>o.p>0).length,rd=dv.filter(o=>o.p<0).length,bd=dv.length?Math.max(...dv.map(o=>o.p)):0,tdy=td();
+a.forEach(x=>{const o=dm[x.d]=dm[x.d]||{p:0,n:0,r:[]};o.p+=x.pl||0;o.n++;o.r.push(x.pl>0?'g':x.pl<0?'r':'mu')});Object.values(dm).forEach(o=>{o.p=Math.round(o.p*100)/100});if(sel&&sel.slice(0,7)!=mo)sel='';if(!sel){const ks=Object.keys(dm).sort();sel=ks.length?ks[ks.length-1]:''}
+const s=Q(a),dv=Object.values(dm),mx=Math.max(1,...dv.map(o=>Math.abs(o.p))),gd=dv.filter(o=>o.p>0).length,rd=dv.filter(o=>o.p<0).length,bd=dv.length?Math.max(...dv.map(o=>o.p)):0,tdy=td(),kk=p=>Math.round(14+Math.sqrt(Math.abs(p)/mx)*30),cf=n=>{const a=Math.abs(n);if(a<.005)return'0';const sg=n<0?'−':'+';if(a<.05)return sg+'0';if(a>=1e6)return sg+(a/1e6).toFixed(1)+'M';if(a>=1e4)return sg+Math.round(a/1e3)+'k';if(a>=1e3)return sg+(a/1e3).toFixed(1).replace(/\.0$/,'')+'k';return sg+(a>=10?Math.round(a):a.toFixed(1).replace(/\.0$/,''))};
 let h='';for(let i=0;i<f;i++)h+='<span class="cvd emp" aria-hidden="true"></span>';const MNs=new Date(y,mm-1,1).toLocaleString('en',{month:'short'});
 for(let d=1;d<=nd;d++){const k=`${mo}-${String(d).padStart(2,'0')}`,o=dm[k],tn=o?(o.p>0?'w':o.p<0?'l':'f'):'';
-h+=`<button class="cvd ${tn} ${k==tdy?'now':''} ${k==sel?'sel':''}" onclick="pk('${k}')" aria-label="${d} ${MNs}${o?', '+o.n+(o.n>1?' trades, ':' trade, ')+m(o.p):', no trades'}"${o&&o.p?` style="--k:${Math.round(12+Math.abs(o.p)/mx*34)}%"`:''}><span class="cvn">${d}</span>${o?`<b class="cvv">${cp(o.p)}</b><span class="cvt">${o.r.slice(0,5).map(c=>`<i style="background:var(--${c})"></i>`).join('')}</span>`:''}</button>`}
+h+=`<button class="cvd ${tn} ${k==tdy?'now':''} ${k==sel?'sel':''}" onclick="pk('${k}')" aria-label="${d} ${MNs}${o?', '+o.n+(o.n>1?' trades, ':' trade, ')+m(o.p):', no trades'}"${o&&o.p?` style="--k:${kk(o.p)}%;--k2:${Math.round(kk(o.p)*.42)}%"`:''}><span class="cvn">${d}</span>${o?`<b class="cvv">${cf(o.p)}</b><span class="cvt">${o.r.slice(0,5).map(c=>`<i style="background:var(--${c})"></i>`).join('')}</span>`:''}</button>`}
 const WN=Math.ceil((f+nd)/7),ws=[];for(let w=0;w<WN;w++){const a1=Math.max(1,w*7-f+1),b1=Math.min(nd,(w+1)*7-f),q=Q(a.filter(x=>{const d=+x.d.slice(8);return d>=a1&&d<=b1}));ws.push({a1,b1,q})}
 const wm=Math.max(1,...ws.map(w=>Math.abs(w.q.net))),MN=new Date(y,mm-1,1).toLocaleString('en',{month:'short'});
-const wr=ws.map((w,i)=>{const v=w.q.net,pw=Math.abs(v)/wm*50;return`<div class="cvw"><div class="wl"><b>Week ${i+1}</b><span>${MN} ${w.a1}–${w.b1}</span></div><div class="wb" aria-hidden="true">${w.q.n&&v?`<i class="${v>0?'wp':'wn'}" style="width:${pw.toFixed(1)}%"></i>`:''}</div><div class="wv"><b class="${cl(v)}">${w.q.n?m(v):'—'}</b><span>${w.q.n?w.q.n+' trade'+(w.q.n>1?'s':'')+' · '+pc(w.q.wr):'no trades'}</span></div></div>`}).join('');
+const wk=ws.map(w=>Object.assign(w,{v:Math.round(w.q.net*100)/100})),act=wk.filter(w=>w.q.n),mxv=Math.max(0,...act.map(w=>w.v)),mnv=Math.min(0,...act.map(w=>w.v)),gw=act.filter(w=>w.v>0).length,rw=act.filter(w=>w.v<0).length,wm2=Math.max(.01,...act.map(w=>Math.abs(w.v)));
+const wr=`<div class="cvkh"><span><b class="g">${gw}</b> green \u00b7 <b class="r">${rw}</b> red</span><span class="${cl(s.net)}">${s.n?m(s.net):'\u2014'}</span></div>`+wk.map((w,i)=>{const v=w.v,pw=Math.abs(v)/wm2*50,tag=act.length>1&&w.q.n?(v>0&&v===mxv?'<em class="wtag g">Best</em>':v<0&&v===mnv?'<em class="wtag r">Worst</em>':''):'';return`<div class="cvw${w.q.n?'':' z'}"><div class="wl"><b>Week ${i+1}${tag}</b><span>${MN} ${w.a1==w.b1?w.a1:w.a1+'\u2013'+w.b1}</span></div><div class="wb" aria-hidden="true">${w.q.n&&v?`<i class="${v>0?'wp':'wn'}" style="width:${pw.toFixed(1)}%"></i>`:''}</div><div class="wv"><b class="${cl(v)}">${w.q.n?m(v):'\u2014'}</b><span>${w.q.n?w.q.n+' trade'+(w.q.n>1?'s':'')+' \u00b7 '+Math.round(w.q.wr*100)+'% win':'no trades'}</span></div></div>`}).join('');
 const dt=sel?T.filter(x=>x.d==sel):[],dq=Q(dt);
 const dp=sel?`<div id="dp"><h2>${new Date(sel+'T00:00:00').toLocaleDateString('en',{weekday:'long',day:'numeric',month:'short',year:'numeric'})}</h2>${dt.length?`<div class="card" style="display:flex;justify-content:space-between;align-items:center"><div><span class="t">Day P/L</span><b class="${cl(dq.net)}" style="font-size:24px;letter-spacing:-.02em">${m(dq.net)}</b></div><div style="text-align:right"><span class="t">${dq.n} trade${dq.n>1?'s':''}</span><b>${dq.w}W · ${dq.l}L</b></div></div>${dt.map(card).join('')}`:'<div class="card sub">No trades logged on this day.</div>'}</div>`:'';
 return`<header><div><h1>Calendar</h1><div class="sub">Your month, day by day</div></div></header>
 <div class="mn"><button onclick="mo=sh(-1);sel='';go();anim()" aria-label="Previous month">‹</button><div class="mt"><b>${new Date(y,mm-1,1).toLocaleString('en',{month:'long'})}</b><span>${y}</span></div><button onclick="mo=sh(1);sel='';go();anim()" aria-label="Next month">›</button></div>
 <div class="chips"><button onclick="mo=td().slice(0,7);sel='';go();anim()">Today</button><button onclick="mo=T.length?T[T.length-1].d.slice(0,7):mo;sel='';go();anim()">Latest trade</button><input type="month" value="${mo}" onchange="mo=this.value||mo;sel='';go();anim()"></div>
-<div class="card hero"><span class="t">Monthly net P/L</span><div class="big ${cl(s.net)}">${m(s.net)}</div><span class="chip ${cl(s.net)}">${pc(R(d=>d.slice(0,7)==mo).ret)} return on balance</span>${dv.length?`<div class="dist cvs"><i style="flex:${gd||.001};background:var(--g)"></i><i style="flex:${(dv.length-gd-rd)||.001};background:var(--mu)"></i><i style="flex:${rd||.001};background:var(--r)"></i></div>`:''}
+<div class="card hero ${s.net>0?'hpos':s.net<0?'hneg':''}"><span class="t">Monthly net P/L</span><div class="big ${cl(s.net)}">${m(s.net)}</div><span class="chip ${cl(s.net)}">${pc(R(d=>d.slice(0,7)==mo).ret)} return on balance</span>${dv.length?`<div class="dist cvs"><i style="flex:${gd||.001};background:var(--g)"></i><i style="flex:${(dv.length-gd-rd)||.001};background:var(--mu)"></i><i style="flex:${rd||.001};background:var(--r)"></i></div>`:''}
 <div class="stl"><div><span class="t">Trades</span><b>${s.n}</b><div class="sub">${s.w}W · ${s.l}L${s.be?' · '+s.be+' BE':''}</div></div><div><span class="t">Win rate</span><b>${s.n?pc(s.wr):'—'}</b></div><div><span class="t">PF</span><b>${s.n?s.pf.toFixed(2):'—'}</b></div><div><span class="t">Green days</span><b class="g">${gd}</b></div><div><span class="t">Red days</span><b class="r">${rd}</b></div><div><span class="t">Best day</span><b class="${cl(bd)}">${dv.length?m(bd):'—'}</b></div></div></div>
 <div class="card cvc"><div class="cvg">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<i>${x}</i>`).join('')}${h}</div><div class="cvl"><span>Loss</span><i></i><span>Profit</span></div><div class="sub cvh2">Each day shows its P/L and one dot per trade. Stronger colour means a bigger day.</div></div>
 ${dp}<h2>Weekly summary</h2><div class="card cvk">${wr}</div>`}
@@ -823,7 +1013,7 @@ if(!okDate(x.d)||!Number.isFinite(+x.pl)){toast('Enter a valid date and P/L');re
 if(x.lot!==''&&(!(Number.isFinite(+x.lot))||+x.lot<=0)){toast('Lot size must be greater than zero');return}
 for(const k of ['en','sl','tp','ex'])if(x[k]!==''&&(!Number.isFinite(+x[k])||+x[k]<=0)){toast('Prices must be greater than zero');return}
 if(x.en!==''&&x.ex!==''&&x.sd=='' ){toast('Choose Long or Short before saving entry and exit prices');return}
-x.rs=x.pl>0?'WIN':x.pl<0?'LOSS':'BREAKEVEN';if(eid)T=T.map(t=>t.id==eid?x:t);else T.push(x);norm();save();mo=x.d.slice(0,7);sel=x.d;eid=0;tab='list';fr='ALL';fs='';fu='';fq='';go();scrollTo({top:0,behavior:'instant'});toast('Trade saved ✓')}
+x.rs=x.pl>0?'WIN':x.pl<0?'LOSS':'BREAKEVEN';if(eid)T=T.map(t=>t.id==eid?x:t);else T.push(x);norm();save();mo=x.d.slice(0,7);sel=x.d;eid=0;tab='list';fr='ALL';fs='';fu='';fq='';go();scrollTo({top:0,behavior:'instant'});toast('Trade saved ✓');if(x.pl>0)winGlow()}
 function goals(){const tdy=td(),tt=T.filter(x=>x.d==tdy),tpl=sum(tt),rb0=S.rb=='cap'?S.cap:balAt(tdy),lim=rb0*S.dl/100,buf=lim+tpl,a=T.filter(x=>x.d.slice(0,7)==mo),mp=sum(a),tb0=S.rb=='cap'?S.cap:balAt(mo+'-01'),tg=tb0*S.tg/100,p=tg?mp/tg:0,n=k=>T.filter(x=>x.er==k).length,N=T.length||1;
 const man=T.filter(x=>x.er=='Manual Close'),fear=sum(man.filter(x=>x.rs=='WIN'))*.5,greed=Math.abs(sum(man.filter(x=>x.rs=='LOSS'))),ad=(n('TP Hit')+n('SL Hit')+n('Trailing Stop'))/N;
 const stt=buf<=0?'Trading halted · daily loss limit hit':tt.length>=S.mt?'Max trades reached · stop trading':'Trading permitted · rules active';
@@ -896,25 +1086,43 @@ return`<div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--b
 <div style="display:flex;gap:10px;align-items:center;margin-top:14px"><div id="ccsw" style="flex:0 0 46px;width:46px;height:46px;border-radius:50%;background:${c};box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 22px -6px ${c};border:2px solid var(--bd)"></div>
 <input id="cch" value="${on?c.toUpperCase():''}" placeholder="#14B8A6" maxlength="7" inputmode="text" autocapitalize="characters" autocomplete="off" autocorrect="off" spellcheck="false" oninput="ccIn(this)" onkeydown="if(event.key=='Enter'){event.preventDefault();ccAdd()}" style="flex:1;min-width:0;padding:13px 14px;border:1px solid var(--bd);border-radius:14px;background:var(--card);font:700 16px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase"><button class="sm" style="margin:0;padding:13px 20px" onclick="ccAdd()">Add</button></div></div>
 ${l.length?`<span class="t" style="margin:16px 0 0">Your colours</span><div class="pg">${l.map(h=>`<div class="sw ${on&&S.cc==h?'sel':''}" onclick="ccPick('${h}')" style="background:#0b0f15;border-color:${on&&S.cc==h?h:'transparent'}"><i style="background:${h}"></i><span style="font-family:ui-monospace,Menlo,monospace;letter-spacing:.03em">${h.toUpperCase()}</span></div>`).join('')}</div>${on&&l.includes(S.cc)?`<button class="sm" onclick="ccRm('${S.cc}')">Remove ${S.cc.toUpperCase()}</button>`:''}`:''}</div>`}
+function applyAm(){const r=document.documentElement,dk=r.dataset.theme=='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches);if(S&&S.am!==false&&dk&&S.ui!='nothing')r.dataset.amo='';else delete r.dataset.amo}
+try{matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{applyPal()})}catch(e){}
+function setAm(v){S.am=v;applyPal();save();go()}
 function setPal(id){S.pal=id;applyPal();save();go()}
 function setMode(v){S.th=v;applyTh();applyPal();save();go()}
 function setUI(v){S.ui=v;applyPal();save();go()}
-function appearCard(){const cur=S.pal||'gold',md=S.th||'',ui=S.ui||'blend',nt=ui=='nothing';
+function appearCard(){const cur=S.pal||'gold',md=S.th||'',ui=S.ui||'blend',nt=ui=='nothing',am=S.am!==false;
 return`<div class="card"><span class="t">Appearance</span><div class="sub" style="margin-bottom:12px">Pick an interface style, a mode and a colour theme. Everything changes instantly and is remembered on this device.</div>
 <span class="t" style="margin:2px 0 8px">Interface style</span><div class="seg">${[['modern','Modern'],['blend','Blend'],['nothing','Nothing']].map(([v,l])=>`<button class="${ui==v?'on':''}" onclick="setUI('${v}')">${l}</button>`).join('')}</div>
 <div class="sub" style="margin:-2px 0 14px">${ui=='modern'?'Glass cards and metallic accents.':ui=='blend'?'Modern glass UI plus Nothing OS details: dot-matrix numbers, red LED dot, dotted charts and a clock widget.':'Nothing OS, refined: dot-matrix type, hairline surfaces and a single red LED accent.'}</div>
 <span class="t" style="margin:2px 0 8px">Mode</span><div class="seg">${[['','Auto'],['dark','Dark'],['light','Light']].map(([v,l])=>`<button class="${md==v?'on':''}" onclick="setMode('${v}')">${l}</button>`).join('')}</div>
+${nt?'':`<div class="srow" style="margin:4px 0 10px"><div><b>AMOLED black</b><div class="sub">True black background with glow accents for OLED screens. Applies in dark mode.</div></div><button class="swt ${am?'on':''}" role="switch" aria-checked="${am}" aria-label="AMOLED black" onclick="setAm(${!am})"></button></div>`}
 ${nt?'<div class="sub">The Nothing style uses its own black, white and red colours. Switch to Modern or Blend to pick a colour theme.</div>':`<span class="t" style="margin:2px 0 0">Colour theme</span><div class="pg">${PL.filter(p=>p.id!='nothing').map(p=>`<div class="sw ${cur==p.id?'sel':''}" onclick="setPal('${p.id}')" style="background:${p.d.card};border-color:${cur==p.id?p.d.ac2:'transparent'}"><i style="background:linear-gradient(180deg,${p.d.g[0]},${p.d.g[1]} 52%,${p.d.g[2]})"></i><span>${p.n}</span></div>`).join('')}</div>
 ${ccCard(cur)}`}</div>`}
 function setN(k,v){const n=Number(v);if(!Number.isFinite(n)||n<0||(k=='mt'&&(!Number.isInteger(n)||n<1))||(k=='cap'&&n<=0)){toast(k=='mt'?'Max trades must be a whole number of at least 1':'Enter a valid number');go();return}S[k]=n;save();go()}
 const BUILD='clean-10';
-function wipe(){const nT=T.length,nF=(S.cf||[]).length;ask({t:'Erase all data?',m:`Deletes <b>${nT}</b> trade${nT==1?'':'s'}${nF?`, <b>${nF}</b> deposit/withdrawal${nF==1?'':'s'}`:''}, checklist and all settings. Type <b>${'ERASE'}</b> to confirm. Cannot be undone.${SY.uid?' <b>Your cloud copy is erased too, and other devices will sync empty.</b>':''}`,w:'ERASE',ok:'Erase everything',danger:1,x:{l:'Download a backup first',fn:()=>{dlB();toast('Backup downloaded')}},fn:()=>{let good=true;try{['xj_v1','tj_v2','tj_v1'].forEach(k=>localStorage.removeItem(k))}catch(x){good=false}T=[];S={cap:1000,dl:2,mt:3,tg:5,wk:{},th:'',cf:[],rb:'bal',tz:'ist',ui:'blend',hp:true,hl:'mid',sn:true};pt='all';fr='ALL';fs='';fu='';fq='';eid=0;sel='';pg=40;hs0=-1;hn=3;Object.keys(AO).forEach(k=>delete AO[k]);applyTh();applyPal();mo=td().slice(0,7);try{localStorage.setItem(K,JSON.stringify({t:T,s:S}));const c=JSON.parse(localStorage.getItem(K));if(!c||!Array.isArray(c.t)||c.t.length)good=false;syMark()}catch(x){good=false}go();toast(good?'All data erased':'Storage is blocked in this browser, so old data may return after reload')}})}
-function rstSet(){ask({t:'Reset all settings?',m:'These go back to their defaults:<ul><li>Appearance: style, mode and colour theme</li><li>Haptics and sound</li><li>Account rules: daily loss 2%, 3 trades a day, monthly target 5%, risk based on balance</li><li>Session times and dropdown lists</li></ul><div style="margin-top:10px">Your trades, deposits, withdrawals, checklist and <b>starting capital</b> are <b>not</b> touched, so your balance stays correct.</div>',ok:'Reset settings',danger:1,fn:()=>{Object.assign(S,{dl:2,mt:3,tg:5,rb:'bal',th:'',ui:'blend',hp:true,hl:'mid',sn:true});if(!(S.cap>0))S.cap=1000;delete S.pal;delete S.cc;delete S.ccl;delete S.sw;delete S.L;fs='';fu='';applyTh();applyPal();save();go();toast('Settings reset ✓')}})}
+function wipe(){const nT=T.length,nF=(S.cf||[]).length;ask({t:'Erase all data?',m:`Deletes <b>${nT}</b> trade${nT==1?'':'s'}${nF?`, <b>${nF}</b> deposit/withdrawal${nF==1?'':'s'}`:''}, checklist and all settings. Type <b>${'ERASE'}</b> to confirm. Cannot be undone.${SY.uid?' <b>Your cloud copy is erased too, and other devices will sync empty.</b>':''}`,w:'ERASE',ok:'Erase everything',danger:1,x:{l:'Download a backup first',fn:()=>{dlB();toast('Backup downloaded')}},fn:()=>{let good=true;try{[K,'tj_v2','tj_v1'].forEach(k=>localStorage.removeItem(k))}catch(x){good=false}T=[];S={cap:1000,dl:2,mt:3,tg:5,wk:{},th:'',cf:[],rb:'bal',tz:'ist',ui:'blend',hp:true,hl:'mid',sn:true};pt='all';fr='ALL';fs='';fu='';fq='';eid=0;sel='';pg=40;hs0=-1;hn=3;Object.keys(AO).forEach(k=>delete AO[k]);applyTh();applyPal();mo=td().slice(0,7);try{localStorage.setItem(K,JSON.stringify({t:T,s:S}));const c=JSON.parse(localStorage.getItem(K));if(!c||!Array.isArray(c.t)||c.t.length)good=false;syMark()}catch(x){good=false}go();toast(good?'All data erased':'Storage is blocked in this browser, so old data may return after reload')}})}
+function rstSet(){ask({t:'Reset all settings?',m:'These go back to their defaults:<ul><li>Appearance: style, mode and colour theme</li><li>Haptics and sound</li><li>Account rules: daily loss 2%, 3 trades a day, monthly target 5%, risk based on balance</li><li>Session times and dropdown lists</li></ul><div style="margin-top:10px">Your trades, deposits, withdrawals, checklist and <b>starting capital</b> are <b>not</b> touched, so your balance stays correct.</div>',ok:'Reset settings',danger:1,fn:()=>{Object.assign(S,{dl:2,mt:3,tg:5,rb:'bal',th:'',ui:'blend',am:true,hp:true,hl:'mid',sn:true});if(!(S.cap>0))S.cap=1000;delete S.pal;delete S.cc;delete S.ccl;delete S.sw;delete S.L;fs='';fu='';applyTh();applyPal();save();go();toast('Settings reset ✓')}})}
 function aboutCard(){let kb='n/a';try{const v=localStorage.getItem(K);if(v!==null)kb=(v.length/1024).toFixed(1)+' KB'}catch(x){}const nf=(S.cf||[]).length,ins=matchMedia('(display-mode: standalone)').matches;return`<div class="card"><span class="t">About &amp; reset</span><div class="sub" style="line-height:1.8">Build <b>${BUILD}</b> · times in IST · ${ins?'installed app':'running in browser'}<br>Trades on this device: <b>${T.length}</b> · deposits &amp; withdrawals: <b>${nf}</b><br>Storage used: <b>${kb}</b>${D.trades.length?` · trades bundled with the app: <b>${D.trades.length}</b>`:''}<br>Made by <b>Santosh</b></div>
 <div class="srow" style="margin-top:6px;border-top:1px solid var(--bd)"><div><b>Reset settings</b><div class="sub">Appearance, haptics, sound, account rules, sessions and lists go back to defaults. Starting capital, trades, deposits and checklist are kept.</div></div><button class="sm d" style="margin:0" onclick="rstSet()">Reset</button></div>
 <div class="srow" style="border-top:1px solid var(--bd)"><div><b>Erase all data</b><div class="sub">Deletes every trade, deposit, withdrawal, checklist item and setting on this device. Download a backup first if you may need it.</div></div><button class="sm d" style="margin:0" onclick="wipe()">Erase</button></div></div>`}
 const AO={};
-function fold(id,h,sub,def){const m=h.match(/^<div class="card">\s*<span class="t"[^>]*>([\s\S]*?)<\/span>([\s\S]*)<\/div>\s*$/);if(!m)return h;const o=AO[id]===undefined?!!def:AO[id];return`<details class="card fd" ${o?'open':''} ontoggle="AO['${id}']=this.open"><summary><div><span class="t" style="margin:0">${m[1]}</span>${sub?`<div class="sub">${sub}</div>`:''}</div>${I('<path d="M6 9l6 6 6-6"/>').replace('class="i"','class="i chv"')}</summary><div class="fb">${m[2]}</div></details>`}
+const AIC={
+sy:'<path d="M7 18a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17 8.6 4.2 4.2 0 0 1 17.5 18z"/><path d="M9.5 13l2 2 3.5-3.5"/>',
+acc:'<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7M3 12.5h18"/><path d="M11 12.5v2h2v-2"/>',
+ru:'<path d="M12 3l7 3v5.5c0 4.2-2.9 7.7-7 9.5-4.1-1.8-7-5.3-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/>',
+cf:'<path d="M7 7h12M16 4l3 3-3 3"/><path d="M17 17H5M8 14l-3 3 3 3"/>',
+ss:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+ls:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/>',
+ap:'<path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 1.6-2.1-.4-1.1.3-2.4 1.6-2.4H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="8" r="1"/>',
+fx:'<path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/>',
+bk:'<path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M5 19h14"/>',
+dc:'<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2M8.5 11l1.8 1.8 3.2-3.4"/>',
+in:'<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M12 8v6M9.5 11.5L12 14l2.5-2.5"/>',
+ab:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>'},
+aiI=id=>AIC[id]?`<span class="ai" aria-hidden="true">${I(AIC[id])}</span>`:'';
+function fold(id,h,sub,def){const m=h.match(/^<div class="card">\s*<span class="t"[^>]*>([\s\S]*?)<\/span>([\s\S]*)<\/div>\s*$/);if(!m)return h;const o=AO[id]===undefined?!!def:AO[id];return`<details class="card fd" ${o?'open':''} ontoggle="AO['${id}']=this.open"><summary>${aiI(id)}<div><span class="t" style="margin:0">${m[1]}</span>${sub?`<div class="sub">${sub}</div>`:''}</div>${I('<path d="M6 9l6 6 6-6"/>').replace('class="i"','class="i chv"')}</summary><div class="fb">${m[2]}</div></details>`}
 function jmp(id){const el=document.getElementById(id);if(el)scrollTo({top:el.getBoundingClientRect().top+scrollY-62,behavior:'smooth'})}
 function setFx(k){S[k]=S[k]===false;if(k=='hp'&&!S.hp&&navigator.vibrate){try{navigator.vibrate(0)}catch(e){}}if(k=='sn'&&S.sn)ac();save();go()}
 function setHL(v){S.hl=v;save();go();fx('press','h')}
@@ -937,7 +1145,7 @@ bkc=`<div class="card"><span class="t">Backup &amp; restore</span><div class="su
 <label style="margin:12px 0 0">Or paste a backup<textarea id="rs" rows="2"></textarea></label><button class="sm" style="margin-top:10px" onclick="rsr()">Restore pasted backup</button></div>`;
 return`<header><div><h1>Account</h1><div class="sub">Rules, preferences, backup &amp; data</div></div></header>
 <div class="chips" style="margin-bottom:0">${[['as_t','Trading'],['as_p','Preferences'],['as_d','Data'],['as_a','App']].map(([i,l])=>`<button onclick="jmp('${i}')">${l}</button>`).join('')}</div>
-${syCard()}
+${syCard()}${accCard()}
 <h2 id="as_t">Trading</h2>
 ${fold('ru',rules,'Starting capital, monthly target and daily limits')}
 ${fold('cf',cfCard(),'Add deposits and withdrawals without hurting your stats')}
@@ -957,14 +1165,14 @@ function bk(){const j=JSON.stringify({t:T,s:S});try{navigator.clipboard.writeTex
 function restoreObj(o){if(!o||!Array.isArray(o.t))throw 0;const s=cleanS(o.s),c=cleanT(o.t);if(o.t.length&&!c.length)throw 0;if(!s.tz||s.tz!=='ist')c.forEach(conv);T=c;S=Object.assign(S,s,{tz:'ist'});applyTh();applyPal();norm();mo=T.length?T[T.length-1].d.slice(0,7):mo;save();go()}
 function rstAsk(o){const n=o.t.length;ask({t:'Restore this backup?',m:`The <b>${T.length}</b> trade${T.length==1?'':'s'} on this device are replaced by <b>${n}</b> from the backup, and its settings are applied.`,ok:'Restore',danger:1,x:{l:'Download current data first',fn:dlB},fn:()=>{try{restoreObj(o);toast('Restored '+T.length+' trades ✓')}catch(x){toast('Invalid backup')}}})}
 function impF(i){const f=i.files&&i.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||!Array.isArray(o.t))throw 0;rstAsk(o)}catch(x){toast('Invalid backup file')}};r.readAsText(f);i.value=''}
-function dlB(){const b=new Blob([JSON.stringify({t:T,s:S})],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='xau-journal-backup-'+td()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+function dlB(){const b=new Blob([JSON.stringify({t:T,s:S})],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='xau-journal-backup-'+(accName(AC.a).replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'acc')+'-'+td()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
 function rsr(){try{const o=JSON.parse($('#rs').value);if(!o||!Array.isArray(o.t))throw 0;rstAsk(o)}catch(x){toast('Invalid backup')}}
 let _at;const anim=c=>{const v=$('#v');v.classList.remove('in');void v.offsetWidth;v.classList.add('in');clearTimeout(_at);_at=setTimeout(()=>v.classList.remove('in'),1600);const el=$('#bal');if(c&&el&&el.dataset.v&&!el.dataset.full){const to=+el.dataset.v,t0=performance.now(),f=n=>{const p=Math.min(1,(n-t0)/800),z=1-Math.pow(1-p,3);el.textContent='$'+usd(to*z);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}};
 const V={home,cal,list,goal:goals,set:sets,add};
-let _lt='';function go(){const nt=tab!=_lt,y0=scrollY;_lt=tab;$('#v').dataset.tab=tab;document.body.dataset.tab=tab;let _h;try{_h=V[tab]()}catch(err){try{console.error(err)}catch(x){}_h='<div class="card"><span class="t">Something went wrong</span><div class="sub" style="margin:8px 0 14px">This screen could not be drawn ('+e(err&&err.message||err)+'). Your data is safe on this device. Download a backup, then try another tab.</div><button class="sm" onclick="dlB()">Download backup</button><button class="sm" onclick="tab=\'home\';go()">Go to Overview</button></div>'}$('#v').innerHTML=_h+((tab=='home'||tab=='set')?'<div class="mkby">Made by <b>Santosh</b></div>':'');document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==tab));const ix=NV.findIndex(n=>n[0]==tab),nv=$('#nav');nv.classList.toggle('noi',ix<0);if(ix>=0&&nv.style.setProperty)nv.style.setProperty('--i',ix);$('#tbt').textContent=NM[tab]||'';$('.fab').style.display=tab=='add'?'none':'flex';if(tab=='add'&&!eid&&$('#f_d')){$('#f_d').value=td();$('#f_pr').value=LL('pr').includes('XAUUSD')?'XAUUSD':(LL('pr')[0]||'');$('#f_tm').value=IST().toISOString().slice(11,16);autosess()}const mb=$('.mbars');if(mb)mb.scrollLeft=mb.scrollWidth;fit();a11y();if(nt)anim(1);else if(Math.abs(scrollY-y0)>1)scrollTo({top:y0,behavior:'instant'})}
+let _lt='';function go(){const nt=tab!=_lt,y0=scrollY;_lt=tab;$('#v').dataset.tab=tab;document.body.dataset.tab=tab;let _h;try{_h=V[tab]()}catch(err){try{console.error(err)}catch(x){}_h='<div class="card"><span class="t">Something went wrong</span><div class="sub" style="margin:8px 0 14px">This screen could not be drawn ('+e(err&&err.message||err)+'). Your data is safe on this device. Download a backup, then try another tab.</div><button class="sm" onclick="dlB()">Download backup</button><button class="sm" onclick="tab=\'home\';go()">Go to Overview</button></div>'}$('#v').innerHTML=accPill()+_h+((tab=='home'||tab=='set')?'<div class="mkby">Made by <b>Santosh</b></div>':'');document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==tab));const ix=NV.findIndex(n=>n[0]==tab),nv=$('#nav');nv.classList.toggle('noi',ix<0);if(ix>=0&&nv.style.setProperty)nv.style.setProperty('--i',ix);$('#tbt').textContent=NM[tab]||'';$('.fab').style.display=tab=='add'?'none':'flex';if(tab=='add'&&!eid&&$('#f_d')){$('#f_d').value=td();$('#f_pr').value=LL('pr').includes('XAUUSD')?'XAUUSD':(LL('pr')[0]||'');$('#f_tm').value=IST().toISOString().slice(11,16);autosess()}const mb=$('.mbars');if(mb)mb.scrollLeft=mb.scrollWidth;fit();a11y();if(nt)anim(1);else if(Math.abs(scrollY-y0)>1)scrollTo({top:y0,behavior:'instant'})}
 const cmpN=t=>{const mm=String(t).match(/^([+−-]?)(\$?)([\d,]+(?:\.\d+)?)$/);if(!mm)return t;let v=+mm[3].replace(/,/g,''),u=['','K','M','B','T','Qa','Qi'],i=0;while(v>=1000&&i<u.length-1){v/=1000;i++}return mm[1]+mm[2]+(i?(v>=100?v.toFixed(0):v>=10?v.toFixed(1):v.toFixed(2))+u[i]:usd(v))};
 function fit(){document.querySelectorAll('.big,.big2,.stl b,.grid b').forEach(el=>{if(el.dataset.full){el.textContent=el.dataset.full;delete el.dataset.full}el.style.fontSize='';const mn=el.matches('.big')?30:el.matches('.big2')?20:12;let f=parseFloat(getComputedStyle(el).fontSize);const sh=()=>{while(el.scrollWidth>el.clientWidth+1&&f>mn){f-=.5;el.style.fontSize=f+'px'}};sh();if(el.scrollWidth>el.clientWidth+1){const c=cmpN(el.textContent);if(c!==el.textContent){el.dataset.full=el.textContent;el.textContent=c;f=Math.max(f,mn+4);el.style.fontSize=f+'px';sh()}}})}
-let _fr=0;addEventListener('resize',()=>{cancelAnimationFrame(_fr);_fr=requestAnimationFrame(fit)});document.fonts&&document.fonts.ready.then(fit);
+let _fr=0,_lw=innerWidth;addEventListener('resize',()=>{if(innerWidth===_lw)return;_lw=innerWidth;cancelAnimationFrame(_fr);_fr=requestAnimationFrame(fit)});document.fonts&&document.fonts.ready.then(fit);
 
 /* ===== keyboard + accessibility (desktop) ===== */
 function a11y(){document.querySelectorAll('#v .cd:not(.emp),#v .hc,#v .sw,#v .mb,#v .row[onclick]').forEach(el=>{if(!el.hasAttribute('tabindex')){el.tabIndex=0;el.setAttribute('role','button')}})}
@@ -997,7 +1205,7 @@ SY.user=u;SY.uid=u.uid;syRec();SY.un=FS.doc(syB()+'meta').onSnapshot(sn=>{if(!sn
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&SY.uid&&!SY.busy)syRec()})}catch(x){SY.st='offline';syUi()}}
 function syLogin(){if(!AU)return;const p=new firebase.auth.GoogleAuthProvider();AU.signInWithPopup(p).catch(x=>{const c=x&&x.code;if(c=='auth/popup-blocked'||c=='auth/operation-not-supported-in-this-environment'||c=='auth/web-storage-unsupported')AU.signInWithRedirect(p);else if(c!='auth/popup-closed-by-user'&&c!='auth/cancelled-popup-request')toast('Login failed: '+(c||'error').replace('auth/',''))})}
 function syOut(){ask({t:'Sign out?',m:'Your data stays safe in the cloud. It is <b>removed from this device</b>, so the next person who opens the app starts clean.',ok:'Sign out',danger:1,fn:async()=>{try{if(syN(SYK)>syN(syLk())){clearTimeout(SY.tm);await syPush()}if(syN(SYK)>syN(syLk())){toast('Could not upload latest data, try again online');return}}catch(x){toast('Could not upload latest data, try again online');return}
-try{[K,SYK,K+'_pre',syLk()].forEach(k=>localStorage.removeItem(k))}catch(x){}
+try{AC.l.map(a=>a.id=='1'?'':'_a'+a.id).forEach(x=>[K0+x,K0+x+'_ts',K0+x+'_pre',K0+x+'_sy_'+SY.uid].forEach(k=>localStorage.removeItem(k)))}catch(x){}
 T=[];S={cap:1000,dl:2,mt:3,tg:5,wk:{},th:'',cf:[],rb:'bal',tz:'ist',ui:'blend',hp:true,hl:'mid',sn:true};pt='all';fr='ALL';fs='';fu='';fq='';eid=0;sel='';applyTh();applyPal();mo=td().slice(0,7);try{await AU.signOut()}catch(x){}go();toast('Signed out')}})}
 function syForce(w){if(!SY.uid)return;if(w=='up')ask({t:'Upload this device to cloud?',m:'The cloud copy is replaced by the data on <b>this device</b>. Other devices will pick it up.',ok:'Upload',danger:1,fn:()=>{syS(SYK,Date.now());syPush();toast('Uploading ✓')}});else ask({t:'Replace this device with cloud data?',m:'Data on <b>this device</b> is replaced by the cloud copy. A safety copy is kept in this browser.',ok:'Use cloud data',danger:1,fn:async()=>{try{const r=await syGet();if(!r){toast('Nothing in the cloud yet');return}syS(SYK,Math.max(syN(SYK),syN(syLk()))+1);syApply(r);SY.st='ok';SY.last=Date.now();syUi();toast('Cloud data loaded ✓')}catch(x){toast('Sync failed, try again')}}})}
 function syInner(){const st=SY.st,h=(c,t)=>`<span class="chip ${c}">${t}</span>`,lt=SY.last?new Date(SY.last).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'';
@@ -1007,10 +1215,40 @@ if(st=='offline')return`<div style="margin-bottom:10px">${h('r','Unavailable')}<
 if(st=='out')return`<div class="sub" style="line-height:1.7;margin-bottom:12px">Sign in with Google to keep your trades in the cloud and see the same data on every device.</div><button class="pri" onclick="syLogin()">Sign in with Google</button>`;
 const u=SY.user||{};return`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px">${st=='ok'?h('g','Synced ✓'):st=='err'?h('r','Sync error'):h('','Syncing…')}<span class="sub">${lt?'Last sync '+lt:''}${st=='err'?' · '+e(SY.err):''}</span></div><div class="sub" style="margin-bottom:12px;word-break:break-all">Signed in as <b>${e(u.email||u.displayName||'')}</b>. Changes save to the cloud automatically.</div><div class="bt2"><button class="sm" onclick="syRec(1)">Sync now</button><button class="sm" onclick="syForce('down')">Use cloud data</button><button class="sm" onclick="syForce('up')">Upload this device</button><button class="sm" onclick="syOut()">Sign out</button></div>`}
 function syBn(){if(SY.st!='out')return'';return`<div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><div><span class="t" style="margin:0">Login &amp; sync</span><div class="sub" style="margin-top:4px;line-height:1.6">Sign in with Google to see the same trades on every device.</div></div><button class="pri" onclick="syLogin()">Sign in with Google</button></div>`}
-function syCard(){return`<div class="card" id="syc"><span class="t">Cloud sync &amp; login</span>${syInner()}</div>`}
-function syUi(){const b=document.getElementById('syb');if(b)b.innerHTML=syBn();const c=document.getElementById('syc');if(c)c.innerHTML='<span class="t">Cloud sync &amp; login</span>'+syInner()}
+/* ===== Multiple trading accounts (switch = reload with another storage key) ===== */
+function accName(a){const x=AC.l.find(v=>v.id==a);return x?x.n:'Account'}
+function accDot(a){return['var(--ac)','#5b9dff','#e0709b','#7bd88f','#f2a65a','#b58cf0'][(Math.max(1,+a)-1)%6]}
+function accSave(){try{localStorage.setItem(AK,JSON.stringify(AC))}catch(x){}}
+async function accGo(a){if(a==AC.a)return;try{if(SY.uid&&syN(SYK)>syN(syLk())){clearTimeout(SY.tm);await syPush()}}catch(x){}AC.a=a;accSave();location.reload()}
+function accAsk(a){ask({t:'Switch account?',m:'Switch to <b>'+e(accName(a))+'</b>? Each account keeps its own trades, calendar, stats and settings.',ok:'Switch',fn:()=>accGo(a)})}
+function accNameDlg(title,val,cb){askClose();const d=document.createElement('div');d.className='dlg';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');
+d.innerHTML=`<div class="dlg-b"></div><div class="dlg-c"><b>${e(title)}</b><input id="acc_n" maxlength="16" autocomplete="off" spellcheck="false" enterkeyhint="done" value="${e(val)}" aria-label="Account name"><div class="dlg-a"><button class="sm" data-c>Cancel</button><button class="sm ok" data-y>Save</button></div></div>`;
+const inp=d.querySelector('#acc_n'),go1=()=>{const v=inp.value.trim().slice(0,16);if(!v){toast('Enter a name');return}askClose();cb(v)};
+d._o=document.documentElement.style.overflow;dlkS(d);d._k=ev=>{if(ev.key=='Escape'){ev.preventDefault();askClose()}};document.addEventListener('keydown',d._k,true);
+inp.addEventListener('keydown',ev=>{if(ev.key=='Enter'){ev.preventDefault();go1()}});
+d.addEventListener('click',ev=>{const t=ev.target;if(t.closest('[data-y]'))go1();else if(t.closest('[data-c]')||t.classList.contains('dlg-b')){fx('tap');askClose()}});
+document.body.appendChild(d);_dg=d;setTimeout(()=>{try{inp.focus({preventScroll:true});inp.select()}catch(x){}},160)}
+function accRefresh(){const c=document.getElementById('acc');if(c)c.outerHTML=accCard();const l=document.querySelector('#v .accp');if(l)l.outerHTML=accPill()}
+function accRen(a){accNameDlg('Rename account',accName(a),n=>{AC.l.find(x=>x.id==a).n=n;accSave();accRefresh();requestAnimationFrame(()=>toast('Account renamed ✓'))})}
+function accAdd(){if(AC.l.length>=10){toast('Maximum 10 accounts');return}accNameDlg('New account',"Account "+(AC.l.length+1),n=>{AC.l.push({id:String(AC.nx++),n});accSave();accRefresh();requestAnimationFrame(()=>toast('Account added ✓'))})}
+function accDel(a){if(a==AC.a||AC.l.length<2)return;ask({t:'Delete account?',m:'Deletes <b>'+e(accName(a))+'</b> with all its trades, deposits and settings from this device'+(SY.uid?' and from the cloud':'')+'. Type <b>DELETE</b> to confirm. Cannot be undone.',w:'DELETE',ok:'Delete account',danger:1,fn:async()=>{const x=a=='1'?'':'_a'+a,uid=SY.uid;try{[K0+x,K0+x+'_ts',K0+x+'_pre',K0+x+'_dev',K0+x+'_sy_'+uid].forEach(k=>localStorage.removeItem(k))}catch(z){}
+if(uid&&FS){try{const b='users/'+uid+'/journal/'+(a=='1'?'':'a'+a+'_'),m=await FS.doc(b+'meta').get();if(m.exists){const n=+m.data().n||0;for(let i=0;i<n;i++)await FS.doc(b+'c'+i).delete();await FS.doc(b+'meta').delete()}}catch(z){}}
+AC.l=AC.l.filter(v=>v.id!=a);accSave();accRefresh();requestAnimationFrame(()=>toast('Account deleted ✓'))}})}
+function accPick(){askClose();const d=document.createElement('div');d.className='dlg';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');
+d.innerHTML=`<div class="dlg-b"></div><div class="dlg-c"><b>Switch account</b><div class="sub">Pick the account you want to trade in.</div><div style="margin-top:6px">${AC.l.map(a=>`<button class="accr${a.id==AC.a?' on':''}" data-id="${a.id}"><i style="background:${accDot(a.id)}"></i><span>${e(a.n)}</span>${a.id==AC.a?'<em>Active</em>':''}</button>`).join('')}</div><div class="dlg-a"><button class="sm" data-c>Close</button><button class="sm ok" data-m>Manage</button></div></div>`;
+d._o=document.documentElement.style.overflow;dlkS(d);d._k=ev=>{if(ev.key=='Escape'){ev.preventDefault();askClose()}};document.addEventListener('keydown',d._k,true);
+d.addEventListener('click',ev=>{const t=ev.target,r=t.closest('[data-id]');if(r){askClose();fx('ok');accGo(r.dataset.id)}else if(t.closest('[data-m]')){askClose();AO.acc=true;tab='set';go();setTimeout(()=>{const x=document.getElementById('acc');if(x)x.scrollIntoView({behavior:'smooth',block:'start'})},60)}else if(t.closest('[data-c]')||t.classList.contains('dlg-b')){fx('tap');askClose()}});
+document.body.appendChild(d);_dg=d}
+function accPill(){const a=AC.a;return`<button class="accp" onclick="accPick()" aria-label="Switch account"><i style="background:${accDot(a)}"></i>${e(accName(a))}<span>⇄</span></button>`}
+function accCard(){return`<div id="acc">${fold('acc',accRaw(),'Active: '+e(accName(AC.a))+' · '+AC.l.length+' account'+(AC.l.length==1?'':'s'))}</div>`}
+function accRaw(){return`<div class="card"><span class="t">Trading accounts</span><div class="sub" style="margin:4px 0 8px">Each account has its own trades, calendar, stats and settings. Cloud sync backs up each one separately.</div>${AC.l.map(a=>`<div style="display:flex;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--bd)"><i style="width:9px;height:9px;border-radius:50%;flex:none;background:${accDot(a.id)}"></i><b style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e(a.n)}</b>${a.id==AC.a?'<span class="chip">Active</span>':`<button class="sm" onclick="accAsk('${a.id}')">Switch</button>`}<button class="sm" onclick="accRen('${a.id}')">Rename</button>${a.id!=AC.a&&AC.l.length>1?`<button class="sm" onclick="accDel('${a.id}')" aria-label="Delete account">Delete</button>`:''}</div>`).join('')}<button class="sm" style="margin-top:10px" onclick="accAdd()">+ Add account</button></div>`}
+function syHd(){return`<div class="aih">${aiI('sy')}<span class="t" style="margin:0">Cloud sync &amp; login</span></div>`}
+function syCard(){return`<div class="card" id="syc">${syHd()}${syInner()}</div>`}
+function syUi(){const b=document.getElementById('syb');if(b)b.innerHTML=syBn();const c=document.getElementById('syc');if(c)c.innerHTML=syHd()+syInner()}
 /* Keep existing service-worker registrations and caches; the versioned app shell updates normally. */
 addEventListener('load',syInit);
+['gesturestart','gesturechange','gestureend'].forEach(t=>document.addEventListener(t,ev=>ev.preventDefault(),{passive:false}));
+document.addEventListener('touchmove',ev=>{if(ev.touches.length>1)ev.preventDefault()},{passive:false});
 /* ===== Premium pickers: replace native select / date / time / month popups ===== */
 (()=>{
 const q1=(s,r)=>(r||document).querySelector(s),z=n=>String(n).padStart(2,'0'),
@@ -1020,8 +1258,8 @@ let P=null;window._pk=0;
 const close=()=>{if(!P)return;const d=P;P=null;window._pk=0;document.removeEventListener('keydown',d._k,true);document.documentElement.style.overflow=d._o;d.classList.add('out');setTimeout(()=>d.remove(),190)};
 function show(title,init){close();const d=document.createElement('div');d.className='pk';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-label',title);
 d.innerHTML='<div class="pk-b"></div><div class="pk-s" tabindex="-1"><i class="pk-h"></i><div class="pk-t">'+e(title)+'</div><div class="pk-m"></div></div>';
-d._o=document.documentElement.style.overflow;document.documentElement.style.overflow='hidden';
-d._k=ev=>{if(ev.key=='Escape'){ev.preventDefault();ev.stopPropagation();close()}};document.addEventListener('keydown',d._k,true);
+d._o=document.documentElement.style.overflow;dlkS(d);
+d._k=ev=>{if(ev.key=='Escape'){ev.preventDefault();ev.stopPropagation();close();return}if(!d._kh||ev.ctrlKey||ev.metaKey||ev.altKey||ev.isComposing)return;if((ev.key=='Enter'||ev.key==' ')&&ev.target.closest&&ev.target.closest('button'))return;if(d._kh(ev)){ev.preventDefault();ev.stopPropagation()}};document.addEventListener('keydown',d._k,true);
 d.addEventListener('click',ev=>{if(ev.target.classList.contains('pk-b'))close()});
 document.body.appendChild(d);P=d;window._pk=1;init(q1('.pk-m',d));try{q1('.pk-s',d).focus({preventScroll:true})}catch(x){}}
 function setV(el,v,idx){const ch=idx!=null?el.selectedIndex!==idx:el.value!==v;if(!ch)return;if(idx!=null)el.selectedIndex=idx;else el.value=v;el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}))}
@@ -1031,18 +1269,44 @@ show(lbl(el)||(os[0]&&os[0].text)||'Choose',m=>{
 m.innerHTML=(many?'<input class="pk-q" placeholder="Search…" autocomplete="off">':'')+'<div class="pk-l" role="listbox">'+os.map((o,i)=>'<button type="button" class="pk-o'+(i==el.selectedIndex?' on':'')+'" role="option" data-i="'+i+'"><span>'+(e(o.text)||'<em>None</em>')+'</span>'+CHK+'</button>').join('')+'</div>';
 m.addEventListener('click',ev=>{const b=ev.target.closest('.pk-o');if(!b)return;setV(el,null,+b.dataset.i);close()});
 const qi=q1('.pk-q',m);if(qi)qi.addEventListener('input',()=>{const s=qi.value.trim().toLowerCase();m.querySelectorAll('.pk-o').forEach(b=>{b.style.display=b.textContent.toLowerCase().includes(s)?'':'none'})});
-const on=q1('.pk-o.on',m);if(on)setTimeout(()=>{try{on.scrollIntoView({block:'center'})}catch(x){}},30)})}
+const on=q1('.pk-o.on',m);if(on)setTimeout(()=>{try{on.scrollIntoView({block:'center'})}catch(x){}},30);
+const vis=()=>[...m.querySelectorAll('.pk-o')].filter(b=>b.style.display!='none'),mark=b=>{m.querySelectorAll('.pk-o.kb').forEach(x=>x.classList.remove('kb'));if(b){b.classList.add('kb');try{b.scrollIntoView({block:'nearest'})}catch(x){}}};
+mark(on||null);if(qi)qi.addEventListener('input',()=>mark(vis()[0]));
+P._kh=ev=>{const k=ev.key,v=vis(),i=v.indexOf(q1('.pk-o.kb',m));
+if(k=='ArrowDown'||k=='ArrowUp'){if(v.length)mark(v[i<0?(k=='ArrowDown'?0:v.length-1):Math.max(0,Math.min(v.length-1,i+(k=='ArrowDown'?1:-1)))]);return true}
+if(k=='Home'||k=='End'){if(v.length)mark(v[k=='Home'?0:v.length-1]);return true}
+if(k=='Enter'){const b=q1('.pk-o.kb',m);if(b&&b.style.display!='none'){setV(el,null,+b.dataset.i);close()}return true}
+if(k.length==1&&k!=' '){if(qi){if(document.activeElement!==qi)qi.focus();return false}
+const c=k.toLowerCase(),n=v.length;for(let j=1;j<=n;j++){const b=v[((i<0?-1:i)+j)%n];if(b.textContent.trim().toLowerCase().startsWith(c)){mark(b);break}}return true}
+return false}})}
 function pickDate(el,month){const tdy=td(),cur=(el.value||'').slice(0,month?7:10),base=cur||(month?tdy.slice(0,7):tdy);
 let vy=+base.slice(0,4)||+tdy.slice(0,4),vm=(+base.slice(5,7)||+tdy.slice(5,7))-1,sd=month?'':base,ym=!!month;
 show(lbl(el)||(month?'Select month':'Select date'),m=>{
 const draw=()=>{let h;
-if(ym){h='<div class="pk-nav"><button type="button" data-a="y-1" aria-label="Previous year">‹</button><b class="pk-yt">'+vy+'</b><button type="button" data-a="y1" aria-label="Next year">›</button></div><div class="pk-mg">'+ML.map((n,i)=>'<button type="button" data-mo="'+i+'" class="'+((month?(vy+'-'+z(i+1))==cur:i==vm)?'on':'')+'">'+n.slice(0,3)+'</button>').join('')+'</div>'+(month?'<div class="pk-a"><span></span><button type="button" data-a="x">Cancel</button></div>':'')}
+if(ym){h='<div class="pk-nav"><button type="button" data-a="y-1" aria-label="Previous year">‹</button><b class="pk-yt">'+vy+'</b><button type="button" data-a="y1" aria-label="Next year">›</button></div><div class="pk-mg">'+ML.map((n,i)=>'<button type="button" data-mo="'+i+'" class="'+((month?(vy+'-'+z(i+1))==cur:i==vm)?'on':'')+(i==vm?' kb':'')+'">'+n.slice(0,3)+'</button>').join('')+'</div>'+(month?'<div class="pk-a"><span></span><button type="button" data-a="x">Cancel</button></div>':'')}
 else{const f=new Date(vy,vm,1).getDay(),nd=new Date(vy,vm+1,0).getDate();let g='';for(let i=0;i<f;i++)g+='<span></span>';
 for(let k=1;k<=nd;k++){const s=vy+'-'+z(vm+1)+'-'+z(k);g+='<button type="button" data-d="'+s+'" class="'+(s==sd?'on':'')+(s==tdy?' now':'')+'">'+k+'</button>'}
 const L=sd?new Date(sd+'T00:00:00'):null;
-h='<div class="pk-hd"><small>Selected</small><b>'+(L?L.toLocaleDateString('en',{weekday:'short',day:'numeric',month:'short',year:'numeric'}):'Pick a day')+'</b></div><div class="pk-nav"><button type="button" data-a="m-1" aria-label="Previous month">‹</button><button type="button" class="pk-ym" data-a="ym">'+ML[vm]+' '+vy+' ▾</button><button type="button" data-a="m1" aria-label="Next month">›</button></div><div class="pk-w">'+['S','M','T','W','T','F','S'].map(x=>'<i>'+x+'</i>').join('')+'</div><div class="pk-g">'+g+'</div><div class="pk-a"><button type="button" data-a="today">Today</button><span></span><button type="button" data-a="x">Cancel</button><button type="button" class="ok" data-a="ok">Set</button></div>'}
+h='<div class="pk-hd"><small>Selected</small><b>'+(L?L.toLocaleDateString('en',{weekday:'short',day:'numeric',month:'short',year:'numeric'}):'Pick a day')+'</b></div><div class="pk-nav"><button type="button" data-a="m-1" aria-label="Previous month">‹</button><button type="button" class="pk-ym" data-a="ym">'+ML[vm]+' '+vy+' ▾</button><button type="button" data-a="m1" aria-label="Next month">›</button></div><div class="pk-w">'+['S','M','T','W','T','F','S'].map(x=>'<i>'+x+'</i>').join('')+'</div><div class="pk-g">'+g+'</div><div class="pk-a"><button type="button" data-a="today">Today</button><span></span><button type="button" data-a="x">Cancel</button><button type="button" class="ok" data-a="ok">Set</button></div><div class="pk-kh">← → ↑ ↓ move · PgUp/PgDn month · type 06112026 · Enter to set</div>'}
 m.innerHTML=h};
 draw();
+{let buf='',bt=0;const dim=(y,mo)=>new Date(y,mo+1,0).getDate(),fmt=dt=>dt.getFullYear()+'-'+z(dt.getMonth()+1)+'-'+z(dt.getDate()),
+go2=dt=>{sd=fmt(dt);vy=dt.getFullYear();vm=dt.getMonth();ym=false;draw()},curD=()=>new Date((sd||tdy)+'T00:00:00'),
+sg=(t,mx)=>t.length<2?t.length:(+t[0]*10>mx||+t.slice(0,2)>mx?1:2),
+typed=()=>{let d=0,mo=0,y=0;if(/[\/\-.]/.test(buf)){const p=buf.split(/[\/\-.]/);d=+p[0]||0;mo=p[1]?+p[1]:0;y=p[2]&&p[2].length==4?+p[2]:0}
+else{let t=buf,l=sg(t,31);d=+t.slice(0,l);t=t.slice(l);if(t){l=sg(t,12);mo=+t.slice(0,l);t=t.slice(l);if(t.length>=4)y=+t.slice(0,4)}}
+const Y=y>=1900?y:vy,Mo=(mo>=1&&mo<=12)?mo-1:vm;if(d>=1)go2(new Date(Y,Mo,Math.min(d,dim(Y,Mo))))};
+P._kh=ev=>{const k=ev.key;
+if(k=='Enter'){if(ym){if(month){setV(el,vy+'-'+z(vm+1));close()}else{ym=false;draw()}}else{if(sd)setV(el,sd);close()}return true}
+if(ym){const mv={ArrowLeft:-1,ArrowRight:1,ArrowUp:-3,ArrowDown:3}[k];if(mv){vm+=mv;while(vm<0){vm+=12;vy--}while(vm>11){vm-=12;vy++}draw();return true}
+if(k=='PageUp'||k=='PageDown'){vy+=k=='PageUp'?-1:1;draw();return true}return false}
+const st={ArrowLeft:-1,ArrowRight:1,ArrowUp:-7,ArrowDown:7}[k];
+if(st){const c=curD();c.setDate(c.getDate()+st);go2(c);buf='';return true}
+if(k=='PageUp'||k=='PageDown'){const c=curD(),n=(k=='PageUp'?-1:1)*(ev.shiftKey?12:1),mo=c.getMonth()+n;go2(new Date(c.getFullYear(),mo,Math.min(c.getDate(),dim(c.getFullYear(),mo))));buf='';return true}
+if(k=='t'||k=='T'){go2(new Date(tdy+'T00:00:00'));buf='';return true}
+if(/^[0-9\/\-.]$/.test(k)){const n=Date.now();if(n-bt>2000||buf.replace(/\D/g,'').length>=8)buf='';bt=n;buf+=k;typed();return true}
+if(k=='Backspace'){buf=buf.slice(0,-1);if(buf)typed();return true}
+return false}}
 m.addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b)return;const a=b.dataset.a;
 if(b.dataset.d){sd=b.dataset.d;draw();return}
 if(b.dataset.mo!=null){vm=+b.dataset.mo;if(month){setV(el,vy+'-'+z(vm+1));close();return}ym=false;draw();return}
@@ -1055,12 +1319,22 @@ else if(a=='x')close()})})}
 function pickTime(el){const now=IST().toISOString().slice(11,16),v=/^\d{1,2}:\d{2}/.test(el.value)?el.value:now;let H=Math.min(23,+v.split(':')[0]),M=Math.min(59,+v.split(':')[1]);
 show(lbl(el)||'Select time',m=>{
 const col=(n,k)=>'<div class="pk-c" data-k="'+k+'" role="listbox">'+Array.from({length:n},(_,i)=>'<div class="pk-i" data-v="'+i+'">'+z(i)+'</div>').join('')+'</div>';
-m.innerHTML='<div class="pk-hd"><small>Selected</small><b id="pk-tv"></b></div><div class="pk-wh"><div class="pk-band"></div>'+col(24,'h')+'<span class="pk-co">:</span>'+col(60,'m')+'</div><div class="pk-a"><button type="button" data-a="now">Now</button><span></span><button type="button" data-a="x">Cancel</button><button type="button" class="ok" data-a="ok">Set</button></div>';
+m.innerHTML='<div class="pk-hd"><small>Selected</small><b id="pk-tv"></b></div><div class="pk-wh"><div class="pk-band"></div>'+col(24,'h')+'<span class="pk-co">:</span>'+col(60,'m')+'</div><div class="pk-a"><button type="button" data-a="now">Now</button><span></span><button type="button" data-a="x">Cancel</button><button type="button" class="ok" data-a="ok">Set</button></div><div class="pk-kh">← → switch hour/min · ↑ ↓ change · type 1752 · Enter to set</div>';
 const cs={h:q1('[data-k=h]',m),m:q1('[data-k=m]',m)},tv=q1('#pk-tv',m);let last=0;
 const paint=(c,i)=>{const it=c.children;for(let j=0;j<it.length;j++)it[j].classList.toggle('on',j==i)},hdr=()=>{tv.textContent=z(H)+':'+z(M)},to=(c,i,sm)=>{c.scrollTo({top:i*44,behavior:sm?'smooth':'instant'})};
 Object.entries(cs).forEach(([k,c])=>{c.addEventListener('scroll',()=>{if(c._r)return;c._r=requestAnimationFrame(()=>{c._r=0;const n=k=='h'?24:60,i=Math.max(0,Math.min(n-1,Math.round(c.scrollTop/44)));if(i!=(k=='h'?H:M)){if(k=='h')H=i;else M=i;const t=Date.now();if(t-last>45){last=t;try{fx('tap')}catch(x){}}}paint(c,i);hdr()})},{passive:true});
 c.addEventListener('click',ev=>{const it=ev.target.closest('.pk-i');if(it)to(c,+it.dataset.v,1)})});
 const sync=()=>{to(cs.h,H);to(cs.m,M);paint(cs.h,H);paint(cs.m,M);hdr()};sync();requestAnimationFrame(sync);
+{let ac='h',buf='',bt=0;const setAc=k=>{ac=k;cs.h.classList.toggle('act',k=='h');cs.m.classList.toggle('act',k=='m')},apply=()=>{to(cs.h,H);to(cs.m,M);paint(cs.h,H);paint(cs.m,M);hdr()};setAc('h');
+const typed=()=>{if(buf.includes(':')){const p=buf.split(':');H=Math.min(23,+p[0]||0);M=Math.min(59,+p[1]||0)}else{const t=buf;let l=t.length<2?t.length:(+t[0]>=3||+t.slice(0,2)>23?1:2);H=+t.slice(0,l);const r=t.slice(l);if(r)M=Math.min(59,+r)}apply()};
+P._kh=ev=>{const k=ev.key;
+if(k=='Enter'){setV(el,z(H)+':'+z(M));close();return true}
+if(k=='ArrowLeft'||k=='ArrowRight'){setAc(k=='ArrowLeft'?'h':'m');return true}
+if(k=='ArrowUp'||k=='ArrowDown'){const d=k=='ArrowUp'?1:-1;if(ac=='h')H=(H+d+24)%24;else M=(M+d*(ev.shiftKey?5:1)+60)%60;buf='';apply();return true}
+if(k=='n'||k=='N'){const n=IST().toISOString().slice(11,16).split(':');H=+n[0];M=+n[1];buf='';apply();return true}
+if(/^[0-9:]$/.test(k)){const n=Date.now();if(n-bt>2000||buf.replace(/\D/g,'').length>=4)buf='';bt=n;buf+=k;typed();return true}
+if(k=='Backspace'){buf=buf.slice(0,-1);if(buf)typed();return true}
+return false}}
 m.addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b)return;const a=b.dataset.a;
 if(a=='now'){const n=IST().toISOString().slice(11,16).split(':');H=+n[0];M=+n[1];to(cs.h,H,1);to(cs.m,M,1);hdr()}
 else if(a=='ok'){setV(el,z(H)+':'+z(M));close()}else if(a=='x')close()})})}
@@ -1070,5 +1344,29 @@ run=el=>{if(P)return;try{fx('tap')}catch(x){}const t=el.type;if(t=='date')pickDa
 document.addEventListener('mousedown',ev=>{if(tgt(ev))ev.preventDefault()},true);
 document.addEventListener('click',ev=>{const t=tgt(ev);if(!t)return;ev.preventDefault();run(t)},true);
 document.addEventListener('keydown',ev=>{if(ev.key!='Enter'&&ev.key!=' ')return;const t=tgt(ev);if(!t)return;ev.preventDefault();run(t)},true);
+})();
+</script><script>
+/* AMOLED chart-line glow: a wide, faint twin stroke (no blur filter, so scrolling stays smooth) */
+(()=>{const v=document.getElementById('v');if(!v)return;let t=0;const run=()=>{t=0;v.querySelectorAll('path[stroke-width="2.2"]:not([data-gl])').forEach(p=>{p.setAttribute('data-gl','1');[[16,.09],[7,.2]].forEach(([w,o])=>{const c=p.cloneNode();c.setAttribute('stroke-width',w);c.setAttribute('stroke-opacity',o);c.setAttribute('class','dl amog');c.setAttribute('aria-hidden','true');p.parentNode.insertBefore(c,p)})})};new MutationObserver(()=>{if(!t)t=requestAnimationFrame(run)}).observe(v,{childList:true,subtree:true});run()})();
+</script><script>
+/* one-shot green glow sweep after saving a winning trade (AMOLED only) */
+function winGlow(){try{if(!document.documentElement.hasAttribute('data-amo')||matchMedia('(prefers-reduced-motion:reduce)').matches)return;const d=document.createElement('div');d.className='wg';d.setAttribute('aria-hidden','true');d.addEventListener('animationend',()=>d.remove(),{once:true});document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}catch(e){}}
+</script><script>
+/* while typing: hide floating nav/FAB and pause ambient glow so the keyboard animation stays smooth */
+(()=>{const r=document.documentElement;let t=0;const T=e=>e&&(e.tagName=='TEXTAREA'||(e.tagName=='INPUT'&&!/^(checkbox|radio|button|submit|range|color|file|date|month|time|datetime-local)$/.test(e.type)));
+addEventListener('focusin',e=>{if(T(e.target)){clearTimeout(t);r.classList.add('kb')}});
+addEventListener('focusout',()=>{clearTimeout(t);t=setTimeout(()=>{if(!T(document.activeElement))r.classList.remove('kb')},150)});})();
+</script><script>
+/* AMOLED pack 3 runtime: risk-guard edge glow, tap ripple, boot bloom (all opacity/transform only) */
+(()=>{const r=document.documentElement,red=()=>matchMedia('(prefers-reduced-motion:reduce)').matches;
+const mk=id=>{const d=document.createElement('div');d.id=id;d.setAttribute('aria-hidden','true');document.body.appendChild(d);return d};
+mk('rg');const rp=mk('rp');mk('bl');
+/* 1. risk guard -> data-rg */
+function rgUpdate(){try{const k=rk();let v='';if(T.length||k.tt.length){if(k.st=='halt')v='halt';else if(k.st=='max'||(k.tpl<0&&k.buf<=k.lim*.35))v='warn'}if(v)r.dataset.rg=v;else delete r.dataset.rg}catch(e){}}
+const g0=go;go=function(){const o=g0.apply(this,arguments);rgUpdate();return o};rgUpdate();
+/* 2. tap ripple on real taps only (click does not fire for scrolls) */
+if(rp.animate)addEventListener('click',ev=>{try{if(!r.hasAttribute('data-amo')||red()||!ev.clientX&&!ev.clientY)return;const t=ev.target;if(!t.closest||!t.closest('button,summary,.card,.cvd,.hc,.mb,.sw,[onclick]')||t.closest('input,textarea,select'))return;const x=ev.clientX-85,y=ev.clientY-85;rp.animate([{transform:`translate(${x}px,${y}px) scale(.2)`,opacity:.55},{transform:`translate(${x}px,${y}px) scale(1.35)`,opacity:0}],{duration:650,easing:'cubic-bezier(.2,.7,.2,1)'})}catch(e){}},{passive:true});
+/* 5. boot bloom */
+if(r.hasAttribute('data-amo')&&!red()){r.classList.add('boot');setTimeout(()=>r.classList.remove('boot'),1700)}
 })();
 </script></body></html>
