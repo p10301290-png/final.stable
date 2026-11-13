@@ -1011,7 +1011,7 @@ main[data-tab=add] .card:has(>label){display:grid;grid-template-columns:repeat(2
 main[data-tab=add] .card:has(>label)>:is(.t,.sub,label:has(textarea),label:has(input[type=url]),label:has(input[placeholder*=http])){grid-column:1/-1}
 main[data-tab=add] .card:has(>label)>label:last-of-type:nth-of-type(odd){grid-column:1/-1}
 main[data-tab=add] .card:has(>label)>label{margin-bottom:12px;min-width:0}
-main[data-tab=add] button.pri{position:sticky;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:3;box-shadow:0 14px 30px -10px rgba(0,0,0,.45)}
+main[data-tab=add] button.pri{box-shadow:0 14px 30px -10px rgba(0,0,0,.45)}
 /* filter rows wrap instead of clipping */
 main[data-tab=list] .chips,main[data-tab=cal] .chips{flex-wrap:wrap;overflow:visible}
 main[data-tab=list] .chips select{flex:1 1 130px;min-width:0}
@@ -1124,6 +1124,9 @@ main[data-tab=list] .row,main[data-tab=cal] .row{content-visibility:auto;contain
  html:root:not(#_) main[data-tab=goal]{max-width:1360px}
  html:root:not(#_) main[data-tab=goal] .dcol.dwk{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+/* Save trade: normal flow at the end of the form (was shifted up over the Mistakes chips) */
+html:root:not(#_) main[data-tab=add]>button.pri{position:relative;top:auto;bottom:auto;inset-inline:auto;margin-top:8px;z-index:auto}
 </style></head><body><main id="v"></main><div id="tb"><span id="tbt"></span></div><div id="toast"></div><button class="fab" onclick="eid=0;tab='add';go();scrollTo({top:0,behavior:'instant'})" aria-label="Add trade"></button><nav id="nav"></nav>
 <script>
 const D={"trades":[],"L":{"pr":["XAUUSD","EURUSD","GBPUSD","USDJPY","GBPJPY","US30","NAS100","BTCUSD"],"su":["Asia","Overlap 1","London","Overlap 2","New York"],"sd":["Long","Short"],"se":["Breakout","Pullback","Reversal","Trend continuation","Range","News play"],"tf":["1 Min","5 Min","15 Min","1 Hour","4 Hour","Daily"],"cf":["Break of structure","Change of character","Retest","Engulfing candle","Rejection wick","Divergence"],"er":["TP Hit","SL Hit","Manual Close","Trailing Stop"],"cp":["Yes","No"],"mk":["Trending","Ranging","High-Impact News","Choppy"],"em":["Calm","Confident","FOMO","Anxious","Revenge","Impatient","Hesitant","Greedy"],"mi":["Revenge trade","FOMO entry","Moved stop loss","Over-sized lot","Broke daily limit","Closed too early","Held too long","No setup / impulse","Ignored news"]}},K0='xj_v1',AK=K0+'_acc',AC=(()=>{let o=null;try{o=JSON.parse(localStorage.getItem(AK))}catch(x){}o=(o&&typeof o=='object')?o:{};let l=[];if(Array.isArray(o.l))l=o.l.filter(x=>x&&/^\d{1,3}$/.test(String(x.id))).map(x=>({id:String(x.id),n:String(x.n||'').slice(0,16)||'Account'}));else{const n=(o.n&&typeof o.n=='object')?o.n:{};l=[{id:'1',n:String(n['1']||'Live').slice(0,16)},{id:'2',n:String(n['2']||'Demo').slice(0,16)}]}if(!l.length)l=[{id:'1',n:'Live'}];return{a:l.some(x=>x.id==String(o.a))?String(o.a):l[0].id,l,nx:Math.max(+o.nx||0,Math.max(...l.map(x=>+x.id))+1),ts:+o.ts||0,h:JSON.stringify(l)}})(),K=AC.a=='1'?K0:K0+'_a'+AC.a,$=s=>document.querySelector(s);
