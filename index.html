@@ -2257,7 +2257,32 @@ try{AIC.rp='<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9.5 13h5M9.5 17h5"/>'
 /* ===== Trade chart screenshots: compressed, one Firestore doc per image, loaded only when opened ===== */
 const SHC={},SHM=100000,SHN=['Entry chart','Exit chart'];let SHP={e:null,d:{},rm:{}};
 const shId=(t,s)=>'sh_'+AC.a+'_'+t+'_'+s,shPath=(t,s)=>'users/'+SY.uid+'/journal/'+shId(t,s),shK=(t,s)=>AC.a+'_'+t+'_'+s;
-function shComp(file){return new Promise((ok,no)=>{const im=new Image(),u=URL.createObjectURL(file);im.onload=()=>{try{let best=null;for(const[mx,q]of[[1000,.72],[900,.6],[760,.5],[640,.42],[520,.35]]){const k=Math.min(1,mx/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(im.width*k));c.height=Math.max(1,Math.round(im.height*k));const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(im,0,0,c.width,c.height);let d=c.toDataURL('image/webp',q);if(d.indexOf('data:image/webp')!=0)d=c.toDataURL('image/jpeg',q);best=d;if(d.length*.75<=SHM)break}URL.revokeObjectURL(u);ok(best)}catch(x){no(x)}};im.onerror=()=>{URL.revokeObjectURL(u);no(new Error('img'))};im.src=u})}
+/* shComp: decode with several methods and check the canvas is not blank (some phones decode the image but draw nothing) */
+function shBlank(c){try{const t=document.createElement('canvas');t.width=t.height=24;const g=t.getContext('2d');g.drawImage(c,0,0,24,24);const d=g.getImageData(0,0,24,24).data;for(let i=0;i<d.length;i+=4){if(d[i]<250||d[i+1]<250||d[i+2]<250)return false}return true}catch(x){return false}}
+function shRead(file){return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=()=>no(r.error||new Error('read'));r.readAsDataURL(file)})}
+async function shDec(m,file){
+ if(m==='bmp'){if(!window.createImageBitmap)throw 0;const b=await createImageBitmap(file,{imageOrientation:'from-image'});return{src:b,w:b.width,h:b.height,done:()=>{try{b.close()}catch(x){}}}}
+ const im=new Image();let u='';
+ if(m==='dec'){im.src=await shRead(file);try{await im.decode()}catch(x){await new Promise((ok,no)=>{if(im.complete&&im.naturalWidth)ok();else{im.onload=ok;im.onerror=()=>no(new Error('img'))}})}return{src:im,w:im.naturalWidth||im.width,h:im.naturalHeight||im.height,done:()=>{}}}
+ u=URL.createObjectURL(file);await new Promise((ok,no)=>{im.onload=ok;im.onerror=()=>no(new Error('img'));im.src=u});
+ return{src:im,w:im.naturalWidth||im.width,h:im.naturalHeight||im.height,done:()=>URL.revokeObjectURL(u)}}
+async function shComp(file){
+ for(const m of['bmp','dec','url']){
+  let L=null;
+  try{L=await shDec(m,file);if(!(L.w>0&&L.h>0)){L.done();continue}
+   let best=null;
+   for(const[mx,q]of[[1000,.72],[900,.6],[760,.5],[640,.42],[520,.35]]){
+    const k=Math.min(1,mx/Math.max(L.w,L.h)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(L.w*k));c.height=Math.max(1,Math.round(L.h*k));
+    const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(L.src,0,0,c.width,c.height);
+    if(best===null&&shBlank(c)){best=undefined;break}
+    let d=c.toDataURL('image/webp',q);if(d.indexOf('data:image/webp')!=0)d=c.toDataURL('image/jpeg',q);
+    best=d;if(d.length*.75<=SHM)break}
+   L.done();if(best)return best
+  }catch(x){try{L&&L.done()}catch(z){}}
+ }
+ /* every method drew a blank canvas: keep the original file only if it is small, never a white picture */
+ if(file.size<=250000&&/^image\/(jpeg|png|webp)$/.test(file.type))return await shRead(file);
+ throw new Error('blank')}
 async function shFetch(t,s){const k=shK(t,s);if(SHC[k])return SHC[k];if(!SY.uid||!FS)return null;try{const sn=await FS.doc(shPath(t,s)).get(),d=sn.exists?sn.data().d:null;if(d)SHC[k]=d;return d}catch(x){return null}}
 function shForm(x){if(SHP.e!==eid)SHP={e:eid,d:{},rm:{}};return`<div class="card"><span class="t" style="margin-bottom:6px">Chart screenshots</span><div class="sub">Auto-compressed to about 50 KB each and synced to your account.</div><div id="shc">${shSl((x&&x.sh)||[])}</div><img alt="" style="display:none" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onload="shTh();this.remove()" onerror="shTh();this.remove()"></div>`}
 function shTh(){if(!eid)return;[0,1].forEach(s=>{const el=$('#sht'+s);if(el)shFetch(eid,s).then(d=>{const q=$('#sht'+s);if(q&&d)q.src=d})})}
@@ -2271,7 +2296,7 @@ function shSl(ex){return'<div class="shg">'+[0,1].map(s=>{const nw=SHP.d[s],a=ex
  if(SHP.b&&SHP.b[s])return`<div class="sht"><div class="shim sk"></div><span class="shb">${SHN[s].split(' ')[0]}</span><div class="shw">Compressing\u2026</div></div>`;
  if(nw||old)return`<div class="sht"><div class="shim" onclick="shView(${eid||0},${s})"><img ${nw?`src="${nw}"`:`id="sht${s}"`} alt="" onload="this.classList.add('ld')"></div><span class="shb">${SHN[s].split(' ')[0]}</span><span class="shz">${nw?Math.round(nw.length*.75/1024)+' KB \u00b7 new':Math.round((a[1]||0)/1024)+' KB'}</span><div class="sha"><label class="shr" title="Replace">${SHI.rep}<input type="file" accept="image/*" onchange="shPick(${s},this)"></label><button type="button" class="shr" onclick="shDel(${s})" title="Remove">${SHI.x}</button></div></div>`;
  return`<label class="sht she">${SHI.cam}<b>${SHN[s]}</b><small>Tap to add</small><input type="file" accept="image/*" onchange="shPick(${s},this)"></label>`}).join('')+'</div>'}
-async function shPick(s,inp){const f=inp.files&&inp.files[0];inp.value='';if(!f)return;if(!SY.uid){toast('Sign in first (Settings \u2192 Login & sync) to attach screenshots');return}SHP.b=SHP.b||{};SHP.b[s]=1;shUi();try{SHP.d[s]=await shComp(f);delete SHP.rm[s];toast('Screenshot added \u2713')}catch(x){toast('Could not read this image')}delete SHP.b[s];shUi()}
+async function shPick(s,inp){const f=inp.files&&inp.files[0];inp.value='';if(!f)return;if(!SY.uid){toast('Sign in first (Settings \u2192 Login & sync) to attach screenshots');return}SHP.b=SHP.b||{};SHP.b[s]=1;shUi();try{SHP.d[s]=await shComp(f);delete SHP.rm[s];toast('Screenshot added \u2713')}catch(x){toast(x&&x.message==='blank'?'This browser could not process the image. Try another screenshot or browser':'Could not read this image')}delete SHP.b[s];shUi()}
 function shSlots(t){const x=T.find(q=>q.id==t),o=((x&&x.sh)||[]).map(a=>a[0]);return SHP.e===t?[0,1].filter(s=>SHP.d[s]||(o.includes(s)&&!SHP.rm[s])):o}
 async function shView(t,s){const sl=shSlots(t);if(!sl.length)return;const o=document.createElement('div');o.className='shv';o.innerHTML='<div class="shh"><div class="shseg"></div><span class="shx">Close</span></div><div class="shbd"></div><div class="shf">Tap the image to zoom</div>';document.body.appendChild(o);o.querySelector('.shx').onclick=()=>o.remove();const seg=o.querySelector('.shseg'),bd=o.querySelector('.shbd');
  const show=async k=>{seg.innerHTML=sl.map(q=>`<button type="button" class="${q==k?'on':''}" data-s="${q}">${SHN[q]}</button>`).join('');seg.querySelectorAll('button').forEach(b=>b.onclick=()=>show(+b.dataset.s));bd.classList.remove('z');bd.innerHTML='<div class="shl">Loading\u2026</div>';const d=SHP.e===t&&SHP.d[k]?SHP.d[k]:await shFetch(t,k);if(!o.isConnected)return;if(d){const i=document.createElement('img');i.src=d;i.onclick=()=>bd.classList.toggle('z');bd.innerHTML='';bd.appendChild(i)}else bd.innerHTML='<div class="shl">Could not load. Check your connection.</div>'};show(sl.includes(s)?s:sl[0])}
@@ -2376,17 +2401,18 @@ NS.open=LS.g(OK)==='1';
 const norm=a=>a.filter(x=>x&&x.date&&x.title).map(x=>({ts:Date.parse(x.date),ti:String(x.title),cu:x.country||'',im:x.impact||'Low',fc:x.forecast||'',pv:x.previous||'',ac:x.actual||''})).filter(x=>x.ts>0).sort((a,b)=>a.ts-b.ts);
 function parse(t){t=String(t||'').trim();if(/exceeded the limit|Request Denied/i.test(t))throw new Error('Forex Factory rate limit hit (wait 5 min)');let j;try{j=JSON.parse(t)}catch(x){throw new Error('Not valid JSON')}if(j&&typeof j.contents==='string'){try{j=JSON.parse(j.contents)}catch(x){throw new Error('Not valid JSON')}}if(!Array.isArray(j))throw new Error('Unexpected data');return j}
 function cacheLoad(){for(let w=0;w<2;w++){try{const c=JSON.parse(LS.g(CK+w)||'null');if(c&&Array.isArray(c.d)){NS.d[w]=c.d;NS.t[w]=c.t}}catch(x){}}}
-function one(u){let id;const to=new Promise((_,no)=>{id=setTimeout(()=>no(new Error('Timeout')),9000)});return Promise.race([fetch(u).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text()}),to]).then(t=>{clearTimeout(id);return parse(t)}).catch(er=>{clearTimeout(id);throw er})}
+function one(u){let id;const to=new Promise((_,no)=>{id=setTimeout(()=>no(new Error('Timeout')),15000)});return Promise.race([fetch(u,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text()}),to]).then(t=>{clearTimeout(id);return parse(t)}).catch(er=>{clearTimeout(id);throw er})}
 function any(ps){return new Promise((ok,no)=>{let n=ps.length,er=[];ps.forEach(p=>p.then(ok,x=>{er.push(x&&x.message||String(x));if(--n===0)no(new Error(er.join(' | ')))}))})}
 async function fetchWeek(w){const px=(LS.g(PK)||DPX).trim(),f=FILES[w],groups=[];if(px)groups.push(['Worker',[px+(px.indexOf('?')<0?'?':'&')+'w='+f]]);groups.push(['Direct',S1(f)],['Proxy',S2(f)]);const errs=[];for(const[n,g]of groups){try{const j=norm(await any(g.map(one)));if(!j.length)throw new Error('Feed was empty');NS.d[w]=j;NS.t[w]=Date.now();LS.s(CK+w,JSON.stringify({t:NS.t[w],d:j}));return}catch(er){errs.push(n+': '+((er&&er.message)||er))}}throw new Error(errs.join(' || '))}
 const sleep=ms=>new Promise(r=>setTimeout(r,ms)),rr=()=>{if(tab==='cal'&&!NS.paste)go()};
 let busy=false;
 async function sync(force){if(busy)return;const need=[0,1].filter(w=>(w===1&&!force&&Date.now()-(+LS.g(NK)||0)<3*3600000)?false:(force||!NS.d[w]||Date.now()-NS.t[w]>=TTL));if(!need.length)return;
-if(!force){try{const f=JSON.parse(LS.g(FK)||'null');if(f&&Date.now()-f.t<BACK){NS.err=f.m;return}}catch(x){}}
+if(!force){try{const f=JSON.parse(LS.g(FK)||'null');if(f&&Date.now()-f.t<(f.w||BACK)){NS.err=f.m;return}}catch(x){}}
 busy=true;if(!NS.d[0]){NS.ld=true;rr()}let ok=true;
-for(const w of need){try{await fetchWeek(w);if(w===1)LS.r(NK);NS.ld=false;rr()}catch(er){if(w===1){LS.s(NK,String(Date.now()));break}ok=false;NS.err=(er&&er.message)||'Network error';LS.s(FK,JSON.stringify({t:Date.now(),m:NS.err}));break}await sleep(1500)}
+for(const w of need){try{await fetchWeek(w);if(w===1)LS.r(NK);NS.ld=false;rr()}catch(er){if(w===1){LS.s(NK,String(Date.now()));break}ok=false;NS.err=(er&&er.message)||'Network error';let pn=0;try{pn=(JSON.parse(LS.g(FK)||'null')||{}).n||0}catch(x){}const rl=/rate limit|HTTP 429|Request Denied/i.test(NS.err);LS.s(FK,JSON.stringify({t:Date.now(),m:NS.err,n:pn+1,w:rl?300000:Math.min(30000*Math.pow(2,pn),300000)}));break}await sleep(1500)}
 if(ok){NS.err='';LS.r(FK)}busy=false;NS.ld=false;rr()}
 const left=ms=>ms;
+function why(){const m=String(NS.err||'').split(' || ')[0];return /rate limit|429|Request Denied/i.test(m)?'rate limited':/Failed to fetch|NetworkError|Load failed|offline/i.test(m)?'no connection':/Timeout/i.test(m)?'slow network':/HTTP 5\d\d/.test(m)?'server error':/Not valid JSON|Unexpected|empty/i.test(m)?'bad data':'error'}
 const SEEN={},FL={};let RI=0;
 function track(all){all.forEach(x=>{const k=x.ts+'|'+x.ti+'|'+x.cu;if(SEEN[k]==='' && x.ac){FL[k]=Date.now();if(x.cu==='USD'&&x.im==='High'){try{fx('ok')}catch(z){}}}SEEN[k]=x.ac||''})}
 const hp=()=>{try{fx('sel')}catch(z){}};
@@ -2422,7 +2448,7 @@ else if(NS.sc==='day')h+='<div class="nwg'+(title.indexOf('Today')===0?' t':'')+
 else{const g={};list.forEach(x=>(g[dk(x.ts)]=g[dk(x.ts)]||[]).push(x));Object.keys(g).sort().forEach(k=>{const r=g[k].filter(x=>x.im==='High').length;h+='<div class="nwg'+(k===t?' t':'')+'"><span>'+dayLab(k)+'</span><em>'+(r?r+' red':'')+'</em></div>'+g[k].map(row).join('')})}
 if(NS.paste)h+='<div class="sub" style="margin-top:14px"><b>Option 1</b> \u00b7 <a href="'+A('thisweek')+'" target="_blank" rel="noopener" style="color:var(--ac2);font-weight:600">open feed \u2197</a>, copy everything, paste below:</div><textarea id="nwp" class="nwp" placeholder="[{&quot;title&quot;:&quot;...&quot;,&quot;country&quot;:&quot;USD&quot;,...}]"></textarea><div class="sub" style="margin-top:12px"><b>Option 2</b> \u00b7 custom sync link (optional, built-in link is used if empty):</div><input id="nwu" class="nwu" placeholder="https://your-worker.workers.dev" value="'+e(LS.g(PK)||'')+'">'+(NS.perr?'<div class="sub r" style="margin-top:6px">'+e(NS.perr)+'</div>':'')+'<div class="nwb"><button onclick="nwPaste(false)">Cancel</button><button class="pr" onclick="nwPaste(true)">Save</button></div>';
 const last=Math.max(NS.t[0],NS.t[1]);
-h+='<div class="nwf"><span>'+(last?'Auto-sync on \u00b7 '+tm(last)+' IST'+(NS.err?' \u00b7 retrying':''):'Auto-sync on')+'</span><span><a href="#" onclick="nwRefresh();return false">Refresh</a>'+((NS.err||!all.length)?' \u00b7 <a href="#" onclick="nwTogglePaste();return false">Set up</a>':'')+' \u00b7 <a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">Forex Factory \u2197</a></span></div></div>';
+h+='<div class="nwf"><span>'+(last?'Auto-sync on \u00b7 '+tm(last)+' IST'+(NS.err?' \u00b7 retrying ('+why()+')':''):'Auto-sync on')+'</span><span><a href="#" onclick="nwRefresh();return false">Refresh</a>'+((NS.err||!all.length)?' \u00b7 <a href="#" onclick="nwTogglePaste();return false">Set up</a>':'')+' \u00b7 <a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">Forex Factory \u2197</a></span></div></div>';
 return h}
 window.nwDay=d=>{hp();const t=td(),c=NS.day||t,ks=evDays();if(d===0)NS.day=null;else{const n=d<0?ks.filter(k=>k<c).pop():ks.filter(k=>k>c)[0];if(!n)return;NS.day=n===t?null:n}NS.sc='day';NS.an=1;go();setTimeout(()=>{NS.an=0},700)};
 window.nwSet=(k,v)=>{hp();NS[k]=v;NS.an=1;go();setTimeout(()=>{NS.an=0},700)};
