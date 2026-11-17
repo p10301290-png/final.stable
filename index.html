@@ -2347,6 +2347,11 @@ function reportCard(){
 .nwl{font-size:10.5px;color:var(--mu);margin-top:12px;line-height:1.5}
 html:root:not(#_) main[data-tab=cal]>.nwhero{grid-column:1/-1}
 /* news motion: only transform/opacity, short and calm */
+.nwdn{display:flex;gap:8px;margin:12px 0 2px}
+.nwdn button{flex:1;border:1px solid var(--bd);background:var(--c1);color:var(--tx);border-radius:12px;padding:9px 0;font:700 12.5px var(--fs);transition:transform .2s,opacity .2s,background-color .2s}
+.nwdn button:active{transform:scale(.96)}
+.nwdn button.on{background:var(--gold);color:var(--on);border-color:transparent}
+.nwdn button:disabled{opacity:.35}
 @keyframes nwIn{from{opacity:0;transform:translateY(8px)}}
 @keyframes nwHot{0%,100%{opacity:0}50%{opacity:1}}
 @keyframes nwBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
@@ -2361,7 +2366,7 @@ html:root:not(#_) main[data-tab=cal]>.nwhero{grid-column:1/-1}
 </style>
 <script>(()=>{
 const CK='xauj_news_',FK='xauj_news_fail',PK='xauj_news_proxy',OK='xauj_news_open',NK='xauj_news_nxmiss',DPX='https://ff-news.p10301290.workers.dev',TTL=10*60*1000,BACK=5*60*1000,FILES=['thisweek','nextweek'];
-const NS={sc:'day',cur:'USD',imp:3,open:false,ld:false,err:'',perr:'',paste:false,d:[null,null],t:[0,0],nx:0};
+const NS={day:null,sc:'day',cur:'USD',imp:3,open:false,ld:false,err:'',perr:'',paste:false,d:[null,null],t:[0,0],nx:0};
 const A=f=>'https://nfs.faireconomy.media/ff_calendar_'+f+'.json',B=f=>'https://cdn-nfs.faireconomy.media/ff_calendar_'+f+'.json';
 const S1=f=>[A(f),B(f)],S2=f=>{const u=encodeURIComponent(A(f));return['https://api.allorigins.win/raw?url='+u,'https://api.codetabs.com/v1/proxy?quest='+u,'https://corsproxy.io/?'+u,'https://api.allorigins.win/get?url='+u]};
 const ist=ts=>new Date(ts+19800000),dk=ts=>ist(ts).toISOString().slice(0,10),tm=ts=>ist(ts).toISOString().slice(11,16);
@@ -2385,6 +2390,9 @@ const left=ms=>ms;
 const SEEN={},FL={};let RI=0;
 function track(all){all.forEach(x=>{const k=x.ts+'|'+x.ti+'|'+x.cu;if(SEEN[k]==='' && x.ac){FL[k]=Date.now();if(x.cu==='USD'&&x.im==='High'){try{fx('ok')}catch(z){}}}SEEN[k]=x.ac||''})}
 const hp=()=>{try{fx('sel')}catch(z){}};
+function evDays(){const o={};[].concat(NS.d[0]||[],NS.d[1]||[]).forEach(x=>{o[dk(x.ts)]=1});return Object.keys(o).sort()}
+function dayNav(all){const ks=evDays(),t=td(),c=NS.day||t,pv=ks.some(k=>k<c),nx=ks.some(k=>k>c);
+return'<div class="nwdn"><button'+(pv?'':' disabled')+' onclick="nwDay(-1)" aria-label="Previous day">\u2039 Prev</button><button class="'+(c===t?'on':'')+'" onclick="nwDay(0)">Today</button><button'+(nx?'':' disabled')+' onclick="nwDay(1)" aria-label="Next day">Next \u203a</button></div>'}
 function dayLab(k){const t=td(),d=new Date(k+'T00:00:00Z'),y=new Date(t+'T00:00:00Z'),df=Math.round((d-y)/864e5),s=d.toLocaleDateString('en',{weekday:'short',month:'short',day:'numeric',timeZone:'UTC'});return df===0?'Today \u00b7 '+s:df===1?'Tomorrow \u00b7 '+s:df===-1?'Yesterday \u00b7 '+s:s}
 function fmtCd(ms){const t=Math.max(0,Math.floor(ms/1000)),d=Math.floor(t/86400),h=Math.floor(t%86400/3600),m=Math.floor(t%3600/60),s=t%60,p=n=>String(n).padStart(2,'0');return(d?d+'d ':'')+p(h)+':'+p(m)+':'+p(s)}
 function rel(ts){const d=ts-Date.now();if(d<=0)return'';const m=Math.round(d/60000);return m<60?'in '+m+'m':d<864e5?'in '+Math.floor(m/60)+'h '+(m%60)+'m':''}
@@ -2398,23 +2406,25 @@ else b='<div class="nwcd" id="nwc">--:--:--</div><div class="nwev" style="color:
 return'<div class="nwhero'+(nx&&nx.ts-Date.now()<900000?' hot':'')+'"><div class="nwtop"><span class="nwlive"><i></i>Forex Factory</span><span class="nwtz'+(stale?' st':'')+'"><i></i>'+(last?'Synced '+tm(last)+' IST':'Not synced')+'</span></div><div class="nwk">Next red USD event</div>'+b+'<button class="nwtg'+(show?' o':'')+'" onclick="nwOpen()"><span>'+(show?'Hide schedule':'View schedule')+'</span>'+CHV+'</button></div>'}
 function reasonTxt(){const m=NS.err||'';if(!m)return'Waiting for the first sync\u2026';if(/rate limit|HTTP 429/i.test(m))return'Forex Factory is limiting requests right now. It retries automatically.';if(/Worker: HTTP 5|upstream/i.test(m))return'The sync server could not reach Forex Factory. It retries automatically.';if(/Failed to fetch|NetworkError/i.test(m))return'Couldn\u2019t connect. Check your internet connection. It retries automatically.';if(/Timeout/i.test(m))return'The sync server is slow to respond. It retries automatically.';return'Couldn\u2019t sync right now. It retries automatically.'}
 function card(){const _m={},all=[].concat(NS.d[0]||[],NS.d[1]||[]).filter(x=>{const k=x.ts+'|'+x.ti+'|'+x.cu;return _m[k]?0:(_m[k]=1)}),show=NS.open||(!all.length&&!NS.ld&&!!NS.err);track(all);RI=0;let h=hero(all,NS.open);if(!show)return h;
-let pool,title;const t=td();
-if(NS.sc==='day'){const s=(typeof sel==='string'&&sel)?sel:t,ks=all.map(x=>dk(x.ts)),inR=ks.length&&s>=ks[0]&&s<=ks[ks.length-1],k=inR?s:t;pool=all.filter(x=>dk(x.ts)===k);title=dayLab(k)}
+let pool,title,oor=0;const t=td();
+if(NS.sc==='day'){const s=NS.day||t,ks=all.map(x=>dk(x.ts)),inR=ks.length&&s>=ks[0]&&s<=ks[ks.length-1];pool=inR?all.filter(x=>dk(x.ts)===s):[];oor=(!inR&&s!==t)?1:0;title=dayLab(s)}
 else if(NS.sc==='wk'){pool=NS.d[0]||[];title='This week'}else{pool=NS.d[1]||[];title='Next week'}
 const list=pool.filter(x=>(NS.cur==='All'||x.cu===NS.cur)&&(IM[x.im]||0)>=NS.imp),on=c=>c?' on':'';
 h+='<div class="card nws'+(NS.an?' an':'')+'">';
 h+='<div class="seg"><button class="'+(NS.sc==='day'?'on':'')+'" onclick="nwSet(\'sc\',\'day\')">Day</button><button class="'+(NS.sc==='wk'?'on':'')+'" onclick="nwSet(\'sc\',\'wk\')">This week</button><button class="'+(NS.sc==='nx'?'on':'')+'" onclick="nwSet(\'sc\',\'nx\')">Next week</button></div>';
 h+='<div class="nwfl"><div class="nwgp"><button class="nwq'+on(NS.cur==='USD')+'" onclick="nwSet(\'cur\',\'USD\')">USD</button><button class="nwq'+on(NS.cur==='All')+'" onclick="nwSet(\'cur\',\'All\')">All</button></div><div class="nwgp"><button class="nwq'+on(NS.imp===3)+'" style="--c:var(--r)" onclick="nwSet(\'imp\',3)"><i></i>High</button><button class="nwq'+on(NS.imp===2)+'" style="--c:#e8a33d" onclick="nwSet(\'imp\',2)"><i></i>Med+</button><button class="nwq'+on(NS.imp===1)+'" style="--c:var(--mu)" onclick="nwSet(\'imp\',1)"><i></i>All</button></div></div>';
+if(NS.sc==='day'&&all.length)h+=dayNav(all);
 if(!all.length&&NS.ld)h+='<div class="nwsk"></div><div class="nwsk"></div><div class="nwsk"></div>';
 else if(!all.length)h+='<div class="nwe">'+ICN+'<b>Calendar not synced yet</b><p>'+e(reasonTxt())+'</p></div><div class="nwbt"><button class="pr" onclick="nwTogglePaste()">Set up</button><button onclick="nwRefresh()">Retry</button></div>'+(NS.err?'<details class="nwerr"><summary>Technical details</summary><div>'+e('['+location.protocol+' online:'+navigator.onLine+'] '+NS.err)+'</div></details>':'');
 else if(NS.sc==='nx'&&!NS.d[1])h+='<div class="nwe">'+ICN+'<b>Not published yet</b><p>Forex Factory usually posts next week\u2019s calendar toward the weekend. It will appear here automatically.</p></div>';
-else if(!list.length)h+='<div class="nwe">'+ICN+'<b>Nothing here</b><p>No matching events for '+e(title)+'. Try a wider impact or currency filter.</p></div>';
+else if(!list.length)h+='<div class="nwe">'+ICN+'<b>Nothing here</b><p>'+(oor?'Forex Factory only publishes this week and next week, so there is no news for '+e(title)+'.':'No matching events for '+e(title)+'. Try a wider impact or currency filter.')+'</p></div>';
 else if(NS.sc==='day')h+='<div class="nwg'+(title.indexOf('Today')===0?' t':'')+'"><span>'+e(title)+'</span><em>'+(list.some(x=>x.im==='High')?list.filter(x=>x.im==='High').length+' red':'')+'</em></div>'+list.map(row).join('');
 else{const g={};list.forEach(x=>(g[dk(x.ts)]=g[dk(x.ts)]||[]).push(x));Object.keys(g).sort().forEach(k=>{const r=g[k].filter(x=>x.im==='High').length;h+='<div class="nwg'+(k===t?' t':'')+'"><span>'+dayLab(k)+'</span><em>'+(r?r+' red':'')+'</em></div>'+g[k].map(row).join('')})}
 if(NS.paste)h+='<div class="sub" style="margin-top:14px"><b>Option 1</b> \u00b7 <a href="'+A('thisweek')+'" target="_blank" rel="noopener" style="color:var(--ac2);font-weight:600">open feed \u2197</a>, copy everything, paste below:</div><textarea id="nwp" class="nwp" placeholder="[{&quot;title&quot;:&quot;...&quot;,&quot;country&quot;:&quot;USD&quot;,...}]"></textarea><div class="sub" style="margin-top:12px"><b>Option 2</b> \u00b7 custom sync link (optional, built-in link is used if empty):</div><input id="nwu" class="nwu" placeholder="https://your-worker.workers.dev" value="'+e(LS.g(PK)||'')+'">'+(NS.perr?'<div class="sub r" style="margin-top:6px">'+e(NS.perr)+'</div>':'')+'<div class="nwb"><button onclick="nwPaste(false)">Cancel</button><button class="pr" onclick="nwPaste(true)">Save</button></div>';
 const last=Math.max(NS.t[0],NS.t[1]);
 h+='<div class="nwf"><span>'+(last?'Auto-sync on \u00b7 '+tm(last)+' IST'+(NS.err?' \u00b7 retrying':''):'Auto-sync on')+'</span><span><a href="#" onclick="nwRefresh();return false">Refresh</a>'+((NS.err||!all.length)?' \u00b7 <a href="#" onclick="nwTogglePaste();return false">Set up</a>':'')+' \u00b7 <a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">Forex Factory \u2197</a></span></div></div>';
 return h}
+window.nwDay=d=>{hp();const t=td(),c=NS.day||t,ks=evDays();if(d===0)NS.day=null;else{const n=d<0?ks.filter(k=>k<c).pop():ks.filter(k=>k>c)[0];if(!n)return;NS.day=n===t?null:n}NS.sc='day';NS.an=1;go();setTimeout(()=>{NS.an=0},700)};
 window.nwSet=(k,v)=>{hp();NS[k]=v;NS.an=1;go();setTimeout(()=>{NS.an=0},700)};
 window.nwOpen=()=>{hp();NS.open=!NS.open;NS.an=1;LS.s(OK,NS.open?'1':'0');go();setTimeout(()=>{NS.an=0},700)};
 window.nwRefresh=()=>{hp();LS.r(FK);sync(true)};
@@ -2425,6 +2435,8 @@ if(txt){const j=norm(parse(txt));if(!j.length)throw new Error('No events found')
 LS.r(FK);NS.paste=false;NS.perr='';go();if(!txt||u)sync(true);try{toast('Saved \u2713')}catch(x){}}catch(er){NS.perr='Could not save: '+(er&&er.message||er);go()}};
 const _c=V.cal;V.cal=function(){const h=_c.apply(this,arguments);sync(false);const n=card(),M='<div class="cvwrap">',i=h.indexOf(M);return i<0?h+n:h.slice(0,i)+n+h.slice(i)};
 cacheLoad();
+try{const _pk=pk;pk=function(k){NS.day=(k&&k!==td())?k:null;NS.sc='day';return _pk.apply(this,arguments)}}catch(x){}
+{const _g=go;go=function(){if(tab!=='cal')NS.day=null;return _g.apply(this,arguments)}}
 setTimeout(()=>sync(false),600);
 setInterval(()=>{if(!document.hidden)sync(false)},60000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)sync(false)});
