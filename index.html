@@ -1205,8 +1205,8 @@ html:root[data-amo]:not(#_):not(#__) #lk .lkl button:not(.on){background:linear-
 .sha{position:absolute;top:6px;right:6px;display:flex;gap:5px}.shr{width:30px;height:30px;border-radius:50%;border:0;background:rgba(10,12,18,.62);color:#fff;display:grid;place-items:center;margin:0;padding:0;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.shr input,.she input{display:none}
 .shw{position:absolute;inset:0;display:grid;place-items:center;font-size:11.5px;font-weight:700;color:var(--mu)}
 .card label.she{aspect-ratio:16/10;border:1.5px dashed color-mix(in srgb,var(--ac) 45%,var(--bd));border-radius:16px;background:color-mix(in srgb,var(--ac) 5%,transparent);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--ac);cursor:pointer;margin:0;padding:8px;text-align:center}.she b{font-size:12.5px;color:var(--tx);margin-top:4px}.she small{font-size:10.5px;color:var(--mu)}
-.shv{position:fixed;inset:0;z-index:95;background:#06080c;display:flex;flex-direction:column}.shh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 14px 10px}.shseg{display:flex;gap:4px;background:rgba(255,255,255,.1);border-radius:14px;padding:4px}.shseg button{border:0;background:transparent;color:#cfd5e2;padding:8px 14px;border-radius:11px;font-weight:700;font-size:13px;margin:0}.shseg button.on{background:#fff;color:#111}
-.shx{color:#fff;font-weight:700;font-size:13px;padding:10px 16px;border-radius:13px;background:rgba(255,255,255,.14)}.shbd{flex:1;min-height:0;overflow:auto;display:flex;align-items:center;justify-content:center;padding:6px 10px}.shbd img{max-width:100%;max-height:100%;border-radius:10px}.shbd.z{align-items:flex-start;justify-content:flex-start}.shbd.z img{max-width:none;max-height:none;width:230%}.shl{color:#aab1c0;font-size:13px}.shf{text-align:center;color:#7c8497;font-size:11px;padding:8px 0 calc(14px + env(safe-area-inset-bottom,0px))}html.lk .shv{visibility:hidden}
+.shv{position:fixed;inset:0;z-index:95;background:#06080c;display:flex;flex-direction:column;touch-action:none}.shh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 14px 10px}.shseg{display:flex;gap:4px;background:rgba(255,255,255,.1);border-radius:14px;padding:4px}.shseg button{border:0;background:transparent;color:#cfd5e2;padding:8px 14px;border-radius:11px;font-weight:700;font-size:13px;margin:0}.shseg button.on{background:#fff;color:#111}
+.shx{color:#fff;font-weight:700;font-size:13px;padding:10px 16px;border-radius:13px;background:rgba(255,255,255,.14)}.shbd{flex:1;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:6px 10px;touch-action:none;-webkit-user-select:none;user-select:none}.shbd img{max-width:100%;max-height:100%;border-radius:10px;transform-origin:50% 50%;will-change:transform;-webkit-user-drag:none;user-select:none;pointer-events:none}.shl{color:#aab1c0;font-size:13px}.shf{text-align:center;color:#7c8497;font-size:11px;padding:8px 0 calc(14px + env(safe-area-inset-bottom,0px))}html.lk .shv{visibility:hidden}
 .cwb{border-color:color-mix(in srgb,var(--r) 45%,var(--bd))!important;background:linear-gradient(135deg,color-mix(in srgb,var(--r) 12%,var(--card)),var(--card) 70%)}
 .cwh{display:flex;justify-content:space-between;align-items:center}.cwt{font:800 34px/1 var(--fs);letter-spacing:-.03em;color:var(--r);font-variant-numeric:tabular-nums}
 .cwm{margin-top:12px;font-size:13px;line-height:1.55;color:var(--tx)}.cwp{height:6px;border-radius:4px;background:var(--c2);overflow:hidden;margin-top:12px}.cwp i{display:block;height:6px;background:var(--r);border-radius:4px;transition:width 1s linear}
@@ -2255,7 +2255,7 @@ window.RPT={
 })();
 try{AIC.rp='<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9.5 13h5M9.5 17h5"/>'}catch(x){}
 /* ===== Trade chart screenshots: compressed, one Firestore doc per image, loaded only when opened ===== */
-const SHC={},SHM=100000,SHN=['Entry chart','Exit chart'];let SHP={e:null,d:{},rm:{}};
+const SHC={},SHM=50000,SHN=['Entry chart','Exit chart'];let SHP={e:null,d:{},rm:{}};
 const shId=(t,s)=>'sh_'+AC.a+'_'+t+'_'+s,shPath=(t,s)=>'users/'+SY.uid+'/journal/'+shId(t,s),shK=(t,s)=>AC.a+'_'+t+'_'+s;
 /* shComp: decode with several methods and check the canvas is not blank (some phones decode the image but draw nothing) */
 function shBlank(c){try{const t=document.createElement('canvas');t.width=t.height=24;const g=t.getContext('2d');g.drawImage(c,0,0,24,24);const d=g.getImageData(0,0,24,24).data;for(let i=0;i<d.length;i+=4){if(d[i]<250||d[i+1]<250||d[i+2]<250)return false}return true}catch(x){return false}}
@@ -2271,12 +2271,17 @@ async function shComp(file){
   let L=null;
   try{L=await shDec(m,file);if(!(L.w>0&&L.h>0)){L.done();continue}
    let best=null;
-   for(const[mx,q]of[[1000,.72],[900,.6],[760,.5],[640,.42],[520,.35]]){
+   const enc=(c,q)=>{let d=c.toDataURL('image/webp',q);if(d.indexOf('data:image/webp')!=0)d=c.toDataURL('image/jpeg',q);return d},sz=d=>d.length*.75;
+   /* largest dimension first; at each size find the highest quality that still fits in SHM (50 KB). Big + sharp beats small + soft for chart text */
+   for(const mx of[1600,1400,1250,1100,1000,900,800,700,600,520]){
     const k=Math.min(1,mx/Math.max(L.w,L.h)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(L.w*k));c.height=Math.max(1,Math.round(L.h*k));
-    const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(L.src,0,0,c.width,c.height);
+    const g=c.getContext('2d');g.imageSmoothingEnabled=true;g.imageSmoothingQuality='high';g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(L.src,0,0,c.width,c.height);
     if(best===null&&shBlank(c)){best=undefined;break}
-    let d=c.toDataURL('image/webp',q);if(d.indexOf('data:image/webp')!=0)d=c.toDataURL('image/jpeg',q);
-    best=d;if(d.length*.75<=SHM)break}
+    let lo=.5,hi=.95,fit=null,d=enc(c,lo);
+    if(sz(d)>SHM){best=d;if(mx===520)break;continue}
+    fit=d;d=enc(c,hi);if(sz(d)<=SHM){best=d;break}
+    for(let i=0;i<6;i++){const mid=(lo+hi)/2;d=enc(c,mid);if(sz(d)<=SHM){lo=mid;fit=d}else hi=mid}
+    best=fit;break}
    L.done();if(best)return best
   }catch(x){try{L&&L.done()}catch(z){}}
  }
@@ -2298,8 +2303,27 @@ function shSl(ex){return'<div class="shg">'+[0,1].map(s=>{const nw=SHP.d[s],a=ex
  return`<label class="sht she">${SHI.cam}<b>${SHN[s]}</b><small>Tap to add</small><input type="file" accept="image/*" onchange="shPick(${s},this)"></label>`}).join('')+'</div>'}
 async function shPick(s,inp){const f=inp.files&&inp.files[0];inp.value='';if(!f)return;if(!SY.uid){toast('Sign in first (Settings \u2192 Login & sync) to attach screenshots');return}SHP.b=SHP.b||{};SHP.b[s]=1;shUi();try{SHP.d[s]=await shComp(f);delete SHP.rm[s];toast('Screenshot added \u2713')}catch(x){toast(x&&x.message==='blank'?'This browser could not process the image. Try another screenshot or browser':'Could not read this image')}delete SHP.b[s];shUi()}
 function shSlots(t){const x=T.find(q=>q.id==t),o=((x&&x.sh)||[]).map(a=>a[0]);return SHP.e===t?[0,1].filter(s=>SHP.d[s]||(o.includes(s)&&!SHP.rm[s])):o}
-async function shView(t,s){const sl=shSlots(t);if(!sl.length)return;const o=document.createElement('div');o.className='shv';o.innerHTML='<div class="shh"><div class="shseg"></div><span class="shx">Close</span></div><div class="shbd"></div><div class="shf">Tap the image to zoom</div>';document.body.appendChild(o);o.querySelector('.shx').onclick=()=>o.remove();const seg=o.querySelector('.shseg'),bd=o.querySelector('.shbd');
- const show=async k=>{seg.innerHTML=sl.map(q=>`<button type="button" class="${q==k?'on':''}" data-s="${q}">${SHN[q]}</button>`).join('');seg.querySelectorAll('button').forEach(b=>b.onclick=()=>show(+b.dataset.s));bd.classList.remove('z');bd.innerHTML='<div class="shl">Loading\u2026</div>';const d=SHP.e===t&&SHP.d[k]?SHP.d[k]:await shFetch(t,k);if(!o.isConnected)return;if(d){const i=document.createElement('img');i.src=d;i.onclick=()=>bd.classList.toggle('z');bd.innerHTML='';bd.appendChild(i)}else bd.innerHTML='<div class="shl">Could not load. Check your connection.</div>'};show(sl.includes(s)?s:sl[0])}
+async function shView(t,s){const sl=shSlots(t);if(!sl.length)return;const o=document.createElement('div');o.className='shv';o.innerHTML='<div class="shh"><div class="shseg"></div><span class="shx">Close</span></div><div class="shbd"></div><div class="shf">Pinch to zoom \u00b7 double-tap to zoom in/out</div>';document.body.appendChild(o);o.querySelector('.shx').onclick=()=>o.remove();const seg=o.querySelector('.shseg'),bd=o.querySelector('.shbd');
+ const show=async k=>{seg.innerHTML=sl.map(q=>`<button type="button" class="${q==k?'on':''}" data-s="${q}">${SHN[q]}</button>`).join('');seg.querySelectorAll('button').forEach(b=>b.onclick=()=>show(+b.dataset.s));bd.innerHTML='<div class="shl">Loading\u2026</div>';const d=SHP.e===t&&SHP.d[k]?SHP.d[k]:await shFetch(t,k);if(!o.isConnected)return;if(d){const i=document.createElement('img');i.src=d;i.draggable=false;bd.innerHTML='';bd.appendChild(i);shZoom(bd,i)}else bd.innerHTML='<div class="shl">Could not load. Check your connection.</div>'};show(sl.includes(s)?s:sl[0])}
+/* shZoom: pinch-to-zoom, double-tap zoom and drag-to-pan for the screenshot preview (pointer events, so it works on touch, pen and mouse) */
+function shZoom(bd,im){
+ let sc=1,tx=0,ty=0;const P=new Map();let d0=0,lt=0,lx=0,ly=0;const MAX=6;
+ const ap=()=>{im.style.transform=sc===1&&!tx&&!ty?'':'translate('+tx+'px,'+ty+'px) scale('+sc+')'};
+ const cl=()=>{if(sc<=1){sc=1;tx=ty=0;return}const w=im.offsetWidth*sc,h=im.offsetHeight*sc,mx=Math.max(0,(w-bd.clientWidth)/2),my=Math.max(0,(h-bd.clientHeight)/2);tx=Math.min(mx,Math.max(-mx,tx));ty=Math.min(my,Math.max(-my,ty))};
+ const ctr=()=>{const r=bd.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]};
+ const zoomAt=(n,fx,fy)=>{n=Math.min(MAX,Math.max(1,n));const[cx,cy]=ctr(),k=n/sc;tx=(fx-cx)-k*(fx-cx-tx);ty=(fy-cy)-k*(fy-cy-ty);sc=n;cl();ap()};
+ im.style.transition='';
+ bd.onpointerdown=e=>{try{bd.setPointerCapture(e.pointerId)}catch(x){}P.set(e.pointerId,[e.clientX,e.clientY]);if(P.size===2){const[a,b]=[...P.values()];d0=Math.hypot(a[0]-b[0],a[1]-b[1])}
+  if(P.size===1){const t=Date.now();if(t-lt<300&&Math.hypot(e.clientX-lx,e.clientY-ly)<35){lt=0;im.style.transition='transform .22s ease';if(sc>1.05){sc=1;tx=ty=0;ap()}else zoomAt(2.6,e.clientX,e.clientY);setTimeout(()=>{im.style.transition=''},260)}else{lt=t;lx=e.clientX;ly=e.clientY}}};
+ bd.onpointermove=e=>{const o=P.get(e.pointerId);if(!o)return;
+  if(P.size===2){const pr=[...P.entries()].map(([k,v])=>k===e.pointerId?[e.clientX,e.clientY]:v),a=pr[0],b=pr[1],d=Math.hypot(a[0]-b[0],a[1]-b[1]),mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,om=[(o[0]+(([...P.entries()].find(([k])=>k!==e.pointerId)||[0,[0,0]])[1][0]))/2,(o[1]+(([...P.entries()].find(([k])=>k!==e.pointerId)||[0,[0,0]])[1][1]))/2];
+   P.set(e.pointerId,[e.clientX,e.clientY]);tx+=mx-om[0];ty+=my-om[1];if(d0>0)zoomAt(sc*d/d0,mx,my);else{cl();ap()}d0=d;return}
+  P.set(e.pointerId,[e.clientX,e.clientY]);
+  if(P.size===1&&sc>1){tx+=e.clientX-o[0];ty+=e.clientY-o[1];cl();ap()}};
+ const up=e=>{P.delete(e.pointerId);d0=0;if(P.size===1){const v=[...P.values()][0];lx=v[0];ly=v[1]}if(sc<1.02){sc=1;tx=ty=0;ap()}};
+ bd.onpointerup=up;bd.onpointercancel=up;
+ bd.addEventListener('wheel',e=>{e.preventDefault();zoomAt(sc*(e.deltaY<0?1.2:1/1.2),e.clientX,e.clientY)},{passive:false});
+ bd.addEventListener('gesturestart',e=>e.preventDefault())}
 function shRow(x){return`<div class="shg" style="margin:10px 0 4px">${x.sh.map(a=>`<div class="sht"><div class="shim" onclick="shView(${x.id},${a[0]})"><img data-t="${x.id}" data-s="${a[0]}" alt="" onload="this.classList.add('ld')"></div><span class="shb">${SHN[a[0]].split(' ')[0]}</span></div>`).join('')}</div>`}
 function shLoad(d){d.querySelectorAll('img[data-t]').forEach(i=>{if(i.getAttribute('src'))return;shFetch(+i.dataset.t,+i.dataset.s).then(u=>{if(u)i.src=u})})}
 function shCard(){let n=0,b=0;T.forEach(x=>(x.sh||[]).forEach(a=>{n++;b+=a[1]||0}));const mb=b/1048576,pc_=Math.min(100,b/1073741824*100);return`<div class="card"><span class="t">Screenshot storage</span><div class="sub" style="margin-bottom:10px">Screenshots are compressed and stored as separate records, so your trades stay fast. The Firebase free plan gives 1 GB for everything.</div><div class="srow"><div><b>${n} screenshot${n==1?'':'s'}</b><div class="sub">${mb<1?Math.round(b/1024)+' KB':mb.toFixed(1)+' MB'} used of 1 GB (${pc_.toFixed(2)}%)</div></div></div><div style="height:6px;border-radius:4px;background:var(--c2);overflow:hidden;margin:10px 0"><i style="display:block;height:6px;width:${n?Math.max(pc_,1):0}%;background:var(--ac2)"></i></div><button class="sm d" onclick="shClean()">Delete screenshots older than 6 months</button></div>`}
